@@ -1,0 +1,832 @@
+{
+  "ahmed-nabeel-al-marafi": {
+    "name": "أحمد نبيل المرافي",
+    "portrait": "/assets/alumni/ahmed-nabeel-al-marafi/portrait.png",
+    "phase_photos": [
+      {
+        "original_name": "اساسيات الحاسوب والطلاقة الديجيتالية_249 - Copy.jpeg",
+        "src": "/assets/alumni/ahmed-nabeel-al-marafi/phases/phase-1.jpeg"
+      },
+      {
+        "original_name": "اساسيات الحاسوب والطلاقة الديجيتالية_249.jpeg",
+        "src": "/assets/alumni/ahmed-nabeel-al-marafi/phases/phase-2.jpeg"
+      },
+      {
+        "original_name": "اساسيات الحاسوب والطلاقة الديجيتالية_288.jpeg",
+        "src": "/assets/alumni/ahmed-nabeel-al-marafi/phases/phase-3.jpeg"
+      },
+      {
+        "original_name": "اساسيات الحاسوب والطلاقة الديجيتالية_336.jpeg",
+        "src": "/assets/alumni/ahmed-nabeel-al-marafi/phases/phase-4.jpeg"
+      },
+      {
+        "original_name": "اساسيات الحاسوب والطلاقة الديجيتالية_431.jpeg",
+        "src": "/assets/alumni/ahmed-nabeel-al-marafi/phases/phase-5.jpeg"
+      },
+      {
+        "original_name": "الاستوديو الاول_490.jpg",
+        "src": "/assets/alumni/ahmed-nabeel-al-marafi/phases/phase-6.jpg"
+      },
+      {
+        "original_name": "الاستوديو الاول_502.jpg",
+        "src": "/assets/alumni/ahmed-nabeel-al-marafi/phases/phase-7.jpg"
+      },
+      {
+        "original_name": "الاستوديو الثاني_242.jpg",
+        "src": "/assets/alumni/ahmed-nabeel-al-marafi/phases/phase-8.jpg"
+      },
+      {
+        "original_name": "الاستوديو الثاني_583.jpg",
+        "src": "/assets/alumni/ahmed-nabeel-al-marafi/phases/phase-9.jpg"
+      },
+      {
+        "original_name": "الاستوديو الثاني_71.jpg",
+        "src": "/assets/alumni/ahmed-nabeel-al-marafi/phases/phase-10.jpg"
+      },
+      {
+        "original_name": "المرحلة التأسيسية_334.jpeg",
+        "src": "/assets/alumni/ahmed-nabeel-al-marafi/phases/phase-11.jpeg"
+      },
+      {
+        "original_name": "المرحلة التأسيسية_429.jpeg",
+        "src": "/assets/alumni/ahmed-nabeel-al-marafi/phases/phase-12.jpeg"
+      }
+    ]
+  },
+  "aws-moatasem-al-sahareen": {
+    "name": "أوس معتصم السهارين",
+    "portrait": "/assets/alumni/aws-moatasem-al-sahareen/portrait.jpg",
+    "phase_photos": [
+      {
+        "original_name": "اساسيات الحاسوب والطلاقة الديجيتالية_249.jpeg",
+        "src": "/assets/alumni/aws-moatasem-al-sahareen/phases/phase-1.jpeg"
+      },
+      {
+        "original_name": "اساسيات الحاسوب والطلاقة الديجيتالية_35.jpeg",
+        "src": "/assets/alumni/aws-moatasem-al-sahareen/phases/phase-2.jpeg"
+      },
+      {
+        "original_name": "الاستوديو الاول_85.jpg",
+        "src": "/assets/alumni/aws-moatasem-al-sahareen/phases/phase-3.jpg"
+      },
+      {
+        "original_name": "الاستوديو الثاني_214.jpg",
+        "src": "/assets/alumni/aws-moatasem-al-sahareen/phases/phase-4.jpg"
+      },
+      {
+        "original_name": "الاستوديو الثاني_394.jpg",
+        "src": "/assets/alumni/aws-moatasem-al-sahareen/phases/phase-5.jpg"
+      },
+      {
+        "original_name": "الاستوديو الثاني_572.jpg",
+        "src": "/assets/alumni/aws-moatasem-al-sahareen/phases/phase-6.jpg"
+      }
+    ]
+  },
+  "rowa-mohammad-al-hawamdeh": {
+    "name": "روعة محمد الحوامدة",
+    "portrait": "/assets/alumni/rowa-mohammad-al-hawamdeh/portrait.jpg",
+    "phase_photos": [
+      {
+        "original_name": "اساسيات الحاسوب والطلاقة الديجيتالية_2.jpeg",
+        "src": "/assets/alumni/rowa-mohammad-al-hawamdeh/phases/phase-1.jpeg"
+      },
+      {
+        "original_name": "اساسيات الحاسوب والطلاقة الديجيتالية_96.jpeg",
+        "src": "/assets/alumni/rowa-mohammad-al-hawamdeh/phases/phase-2.jpeg"
+      },
+      {
+        "original_name": "الاستوديو الثاني_283.jpg",
+        "src": "/assets/alumni/rowa-mohammad-al-hawamdeh/phases/phase-3.jpg"
+      },
+      {
+        "original_name": "الاستوديو الثاني_323.jpg",
+        "src": "/assets/alumni/rowa-mohammad-al-hawamdeh/phases/phase-4.jpg"
+      },
+      {
+        "original_name": "الاستوديو الثاني_567.jpg",
+        "src": "/assets/alumni/rowa-mohammad-al-hawamdeh/phases/phase-5.jpg"
+      },
+      {
+        "original_name": "المرحلة التأسيسية_93.jpeg",
+        "src": "/assets/alumni/rowa-mohammad-al-hawamdeh/phases/phase-6.jpeg"
+      },
+      {
+        "original_name": "زمالة تواصل مع قوتك_152.jpg",
+        "src": "/assets/alumni/rowa-mohammad-al-hawamdeh/phases/phase-7.jpg"
+      }
+    ]
+  },
+  "abdullah-bakr-al-hajjaj": {
+    "name": "عبدالله بكر الحجاج",
+    "portrait": "/assets/alumni/abdullah-bakr-al-hajjaj/portrait.webp",
+    "phase_photos": [
+      {
+        "original_name": "اساسيات الحاسوب والطلاقة الديجيتالية_183.jpeg",
+        "src": "/assets/alumni/abdullah-bakr-al-hajjaj/phases/phase-1.jpeg"
+      },
+      {
+        "original_name": "اساسيات الحاسوب والطلاقة الديجيتالية_259.jpeg",
+        "src": "/assets/alumni/abdullah-bakr-al-hajjaj/phases/phase-2.jpeg"
+      },
+      {
+        "original_name": "اساسيات الحاسوب والطلاقة الديجيتالية_360.jpeg",
+        "src": "/assets/alumni/abdullah-bakr-al-hajjaj/phases/phase-3.jpeg"
+      },
+      {
+        "original_name": "اساسيات الحاسوب والطلاقة الديجيتالية_452.jpeg",
+        "src": "/assets/alumni/abdullah-bakr-al-hajjaj/phases/phase-4.jpeg"
+      },
+      {
+        "original_name": "زمالة تواصل مع قوتك_151.jpg",
+        "src": "/assets/alumni/abdullah-bakr-al-hajjaj/phases/phase-5.jpg"
+      },
+      {
+        "original_name": "زمالة تواصل مع قوتك_36.jpg",
+        "src": "/assets/alumni/abdullah-bakr-al-hajjaj/phases/phase-6.jpg"
+      },
+      {
+        "original_name": "زمالة تواصل مع قوتك_5.jpg",
+        "src": "/assets/alumni/abdullah-bakr-al-hajjaj/phases/phase-7.jpg"
+      }
+    ]
+  },
+  "lujain-alaa-al-badoor": {
+    "name": "لجين علاء البدور",
+    "portrait": "/assets/alumni/lujain-alaa-al-badoor/portrait.jpg",
+    "phase_photos": [
+      {
+        "original_name": "اساسيات الحاسوب والطلاقة الديجيتالية_189.jpeg",
+        "src": "/assets/alumni/lujain-alaa-al-badoor/phases/phase-1.jpeg"
+      },
+      {
+        "original_name": "اساسيات الحاسوب والطلاقة الديجيتالية_98.jpeg",
+        "src": "/assets/alumni/lujain-alaa-al-badoor/phases/phase-2.jpeg"
+      },
+      {
+        "original_name": "الاستوديو الاول_112.jpg",
+        "src": "/assets/alumni/lujain-alaa-al-badoor/phases/phase-3.jpg"
+      },
+      {
+        "original_name": "الاستوديو الثاني_218.jpg",
+        "src": "/assets/alumni/lujain-alaa-al-badoor/phases/phase-4.jpg"
+      },
+      {
+        "original_name": "الاستوديو الثاني_244.jpg",
+        "src": "/assets/alumni/lujain-alaa-al-badoor/phases/phase-5.jpg"
+      },
+      {
+        "original_name": "المرحلة التأسيسية_398.jpeg",
+        "src": "/assets/alumni/lujain-alaa-al-badoor/phases/phase-6.jpeg"
+      },
+      {
+        "original_name": "المرحلة التأسيسية_445.jpeg",
+        "src": "/assets/alumni/lujain-alaa-al-badoor/phases/phase-7.jpeg"
+      },
+      {
+        "original_name": "المرحلة التأسيسية_503.jpeg",
+        "src": "/assets/alumni/lujain-alaa-al-badoor/phases/phase-8.jpeg"
+      }
+    ]
+  },
+  "wisam-faisal-al-masri": {
+    "name": "وسام فيصل المصري",
+    "portrait": "/assets/alumni/wisam-faisal-al-masri/portrait.webp",
+    "phase_photos": [
+      {
+        "original_name": "اساسيات الحاسوب والطلاقة الديجيتالية_101.jpeg",
+        "src": "/assets/alumni/wisam-faisal-al-masri/phases/phase-1.jpeg"
+      },
+      {
+        "original_name": "اساسيات الحاسوب والطلاقة الديجيتالية_351.jpeg",
+        "src": "/assets/alumni/wisam-faisal-al-masri/phases/phase-2.jpeg"
+      },
+      {
+        "original_name": "اساسيات الحاسوب والطلاقة الديجيتالية_456.jpeg",
+        "src": "/assets/alumni/wisam-faisal-al-masri/phases/phase-3.jpeg"
+      },
+      {
+        "original_name": "الاستوديو الاول_376.jpg",
+        "src": "/assets/alumni/wisam-faisal-al-masri/phases/phase-4.jpg"
+      },
+      {
+        "original_name": "الاستوديو الاول_403.jpg",
+        "src": "/assets/alumni/wisam-faisal-al-masri/phases/phase-5.jpg"
+      },
+      {
+        "original_name": "الاستوديو الثاني_537.jpg",
+        "src": "/assets/alumni/wisam-faisal-al-masri/phases/phase-6.jpg"
+      },
+      {
+        "original_name": "الاستوديو الثاني_560.jpg",
+        "src": "/assets/alumni/wisam-faisal-al-masri/phases/phase-7.jpg"
+      },
+      {
+        "original_name": "المرحلة التأسيسية_262.jpeg",
+        "src": "/assets/alumni/wisam-faisal-al-masri/phases/phase-8.jpeg"
+      },
+      {
+        "original_name": "المرحلة التأسيسية_288.jpeg",
+        "src": "/assets/alumni/wisam-faisal-al-masri/phases/phase-9.jpeg"
+      },
+      {
+        "original_name": "المرحلة التأسيسية_434.jpeg",
+        "src": "/assets/alumni/wisam-faisal-al-masri/phases/phase-10.jpeg"
+      },
+      {
+        "original_name": "المرحلة التأسيسية_519.jpeg",
+        "src": "/assets/alumni/wisam-faisal-al-masri/phases/phase-11.jpeg"
+      },
+      {
+        "original_name": "المرحلة التأسيسية_60.jpeg",
+        "src": "/assets/alumni/wisam-faisal-al-masri/phases/phase-12.jpeg"
+      },
+      {
+        "original_name": "زمالة تواصل مع قوتك_78.jpg",
+        "src": "/assets/alumni/wisam-faisal-al-masri/phases/phase-13.jpg"
+      }
+    ]
+  },
+  "abdullah-nimr-al-sokoor": {
+    "name": "عبدالله نمر السكور",
+    "portrait": "/assets/alumni/abdullah-nimr-al-sokoor/portrait.webp",
+    "phase_photos": [
+      {
+        "original_name": "اساسيات الحاسوب والطلاقة الديجيتالية_309.jpeg",
+        "src": "/assets/alumni/abdullah-nimr-al-sokoor/phases/phase-1.jpeg"
+      },
+      {
+        "original_name": "اساسيات الحاسوب والطلاقة الديجيتالية_425.jpeg",
+        "src": "/assets/alumni/abdullah-nimr-al-sokoor/phases/phase-2.jpeg"
+      },
+      {
+        "original_name": "اساسيات الحاسوب والطلاقة الديجيتالية_63.jpeg",
+        "src": "/assets/alumni/abdullah-nimr-al-sokoor/phases/phase-3.jpeg"
+      },
+      {
+        "original_name": "الاستوديو الاول_27.jpg",
+        "src": "/assets/alumni/abdullah-nimr-al-sokoor/phases/phase-4.jpg"
+      },
+      {
+        "original_name": "الاستوديو الثاني_212.jpg",
+        "src": "/assets/alumni/abdullah-nimr-al-sokoor/phases/phase-5.jpg"
+      },
+      {
+        "original_name": "الاستوديو الثاني_291.jpg",
+        "src": "/assets/alumni/abdullah-nimr-al-sokoor/phases/phase-6.jpg"
+      },
+      {
+        "original_name": "الاستوديو الثاني_340.jpg",
+        "src": "/assets/alumni/abdullah-nimr-al-sokoor/phases/phase-7.jpg"
+      },
+      {
+        "original_name": "الاستوديو الثاني_376.jpg",
+        "src": "/assets/alumni/abdullah-nimr-al-sokoor/phases/phase-8.jpg"
+      },
+      {
+        "original_name": "الاستوديو الثاني_536.jpg",
+        "src": "/assets/alumni/abdullah-nimr-al-sokoor/phases/phase-9.jpg"
+      },
+      {
+        "original_name": "المرحلة التأسيسية_436.jpeg",
+        "src": "/assets/alumni/abdullah-nimr-al-sokoor/phases/phase-10.jpeg"
+      }
+    ]
+  },
+  "omran-emad-al-torman": {
+    "name": "عمران عماد الطرمان",
+    "portrait": "/assets/alumni/omran-emad-al-torman/portrait.webp",
+    "phase_photos": [
+      {
+        "original_name": "اساسيات الحاسوب والطلاقة الديجيتالية_127.jpeg",
+        "src": "/assets/alumni/omran-emad-al-torman/phases/phase-1.jpeg"
+      },
+      {
+        "original_name": "اساسيات الحاسوب والطلاقة الديجيتالية_135.jpeg",
+        "src": "/assets/alumni/omran-emad-al-torman/phases/phase-2.jpeg"
+      },
+      {
+        "original_name": "اساسيات الحاسوب والطلاقة الديجيتالية_185.jpeg",
+        "src": "/assets/alumni/omran-emad-al-torman/phases/phase-3.jpeg"
+      },
+      {
+        "original_name": "اساسيات الحاسوب والطلاقة الديجيتالية_284.jpeg",
+        "src": "/assets/alumni/omran-emad-al-torman/phases/phase-4.jpeg"
+      },
+      {
+        "original_name": "اساسيات الحاسوب والطلاقة الديجيتالية_420.jpeg",
+        "src": "/assets/alumni/omran-emad-al-torman/phases/phase-5.jpeg"
+      },
+      {
+        "original_name": "اساسيات الحاسوب والطلاقة الديجيتالية_430.jpeg",
+        "src": "/assets/alumni/omran-emad-al-torman/phases/phase-6.jpeg"
+      },
+      {
+        "original_name": "الاستوديو الاول_206.jpg",
+        "src": "/assets/alumni/omran-emad-al-torman/phases/phase-7.jpg"
+      },
+      {
+        "original_name": "الاستوديو الاول_253.jpg",
+        "src": "/assets/alumni/omran-emad-al-torman/phases/phase-8.jpg"
+      },
+      {
+        "original_name": "الاستوديو الثاني_123.jpg",
+        "src": "/assets/alumni/omran-emad-al-torman/phases/phase-9.jpg"
+      },
+      {
+        "original_name": "الاستوديو الثاني_380.jpg",
+        "src": "/assets/alumni/omran-emad-al-torman/phases/phase-10.jpg"
+      },
+      {
+        "original_name": "الاستوديو الثاني_561.jpg",
+        "src": "/assets/alumni/omran-emad-al-torman/phases/phase-11.jpg"
+      }
+    ]
+  },
+  "qatr-al-nada-ahmed-al-qaisi": {
+    "name": "قطر الندى أحمد القيسي",
+    "portrait": "/assets/alumni/qatr-al-nada-ahmed-al-qaisi/portrait.jpg",
+    "phase_photos": [
+      {
+        "original_name": "اساسيات الحاسوب والطلاقة الديجيتالية_3.jpeg",
+        "src": "/assets/alumni/qatr-al-nada-ahmed-al-qaisi/phases/phase-1.jpeg"
+      },
+      {
+        "original_name": "الاستوديو الاول_12.jpg",
+        "src": "/assets/alumni/qatr-al-nada-ahmed-al-qaisi/phases/phase-2.jpg"
+      },
+      {
+        "original_name": "الاستوديو الاول_319.jpg",
+        "src": "/assets/alumni/qatr-al-nada-ahmed-al-qaisi/phases/phase-3.jpg"
+      },
+      {
+        "original_name": "الاستوديو الاول_388.jpg",
+        "src": "/assets/alumni/qatr-al-nada-ahmed-al-qaisi/phases/phase-4.jpg"
+      },
+      {
+        "original_name": "الاستوديو الثاني_209.jpg",
+        "src": "/assets/alumni/qatr-al-nada-ahmed-al-qaisi/phases/phase-5.jpg"
+      },
+      {
+        "original_name": "الاستوديو الثاني_228.jpg",
+        "src": "/assets/alumni/qatr-al-nada-ahmed-al-qaisi/phases/phase-6.jpg"
+      },
+      {
+        "original_name": "الاستوديو الثاني_564.jpg",
+        "src": "/assets/alumni/qatr-al-nada-ahmed-al-qaisi/phases/phase-7.jpg"
+      }
+    ]
+  },
+  "rajaa-tariq-al-qaisi": {
+    "name": "رجاء طارق القيسي",
+    "portrait": "/assets/alumni/rajaa-tariq-al-qaisi/portrait.jpg",
+    "phase_photos": [
+      {
+        "original_name": "اساسيات الحاسوب والطلاقة الديجيتالية_3.jpeg",
+        "src": "/assets/alumni/rajaa-tariq-al-qaisi/phases/phase-1.jpeg"
+      },
+      {
+        "original_name": "اساسيات الحاسوب والطلاقة الديجيتالية_416.jpeg",
+        "src": "/assets/alumni/rajaa-tariq-al-qaisi/phases/phase-2.jpeg"
+      },
+      {
+        "original_name": "اساسيات الحاسوب والطلاقة الديجيتالية_93.jpeg",
+        "src": "/assets/alumni/rajaa-tariq-al-qaisi/phases/phase-3.jpeg"
+      },
+      {
+        "original_name": "الاستوديو الاول_174.jpg",
+        "src": "/assets/alumni/rajaa-tariq-al-qaisi/phases/phase-4.jpg"
+      },
+      {
+        "original_name": "الاستوديو الثاني_211.jpg",
+        "src": "/assets/alumni/rajaa-tariq-al-qaisi/phases/phase-5.jpg"
+      },
+      {
+        "original_name": "الاستوديو الثاني_248.jpg",
+        "src": "/assets/alumni/rajaa-tariq-al-qaisi/phases/phase-6.jpg"
+      },
+      {
+        "original_name": "الاستوديو الثاني_533.jpg",
+        "src": "/assets/alumni/rajaa-tariq-al-qaisi/phases/phase-7.jpg"
+      },
+      {
+        "original_name": "الاستوديو الثاني_56.jpg",
+        "src": "/assets/alumni/rajaa-tariq-al-qaisi/phases/phase-8.jpg"
+      },
+      {
+        "original_name": "الاستوديو الثاني_586.jpg",
+        "src": "/assets/alumni/rajaa-tariq-al-qaisi/phases/phase-9.jpg"
+      },
+      {
+        "original_name": "المرحلة التأسيسية_423.jpeg",
+        "src": "/assets/alumni/rajaa-tariq-al-qaisi/phases/phase-10.jpeg"
+      }
+    ]
+  },
+  "mustafa-khaled-al-odainat": {
+    "name": "مصطفى خالد العدينات",
+    "portrait": "/assets/alumni/mustafa-khaled-al-odainat/portrait.webp",
+    "phase_photos": [
+      {
+        "original_name": "اساسيات الحاسوب والطلاقة الديجيتالية_126.jpeg",
+        "src": "/assets/alumni/mustafa-khaled-al-odainat/phases/phase-1.jpeg"
+      },
+      {
+        "original_name": "اساسيات الحاسوب والطلاقة الديجيتالية_169.jpeg",
+        "src": "/assets/alumni/mustafa-khaled-al-odainat/phases/phase-2.jpeg"
+      },
+      {
+        "original_name": "اساسيات الحاسوب والطلاقة الديجيتالية_437.jpeg",
+        "src": "/assets/alumni/mustafa-khaled-al-odainat/phases/phase-3.jpeg"
+      },
+      {
+        "original_name": "اساسيات الحاسوب والطلاقة الديجيتالية_463.jpeg",
+        "src": "/assets/alumni/mustafa-khaled-al-odainat/phases/phase-4.jpeg"
+      },
+      {
+        "original_name": "الاستوديو الاول_193.jpg",
+        "src": "/assets/alumni/mustafa-khaled-al-odainat/phases/phase-5.jpg"
+      },
+      {
+        "original_name": "الاستوديو الثاني_41.jpg",
+        "src": "/assets/alumni/mustafa-khaled-al-odainat/phases/phase-6.jpg"
+      },
+      {
+        "original_name": "المرحلة التأسيسية_327.jpeg",
+        "src": "/assets/alumni/mustafa-khaled-al-odainat/phases/phase-7.jpeg"
+      }
+    ]
+  },
+  "ghana-mohammad-al-shamasat": {
+    "name": "غنى محمد الشماسات",
+    "portrait": "/assets/alumni/ghana-mohammad-al-shamasat/portrait.jpg",
+    "phase_photos": [
+      {
+        "original_name": "اساسيات الحاسوب والطلاقة الديجيتالية_115.jpeg",
+        "src": "/assets/alumni/ghana-mohammad-al-shamasat/phases/phase-1.jpeg"
+      },
+      {
+        "original_name": "اساسيات الحاسوب والطلاقة الديجيتالية_225.jpeg",
+        "src": "/assets/alumni/ghana-mohammad-al-shamasat/phases/phase-2.jpeg"
+      },
+      {
+        "original_name": "اساسيات الحاسوب والطلاقة الديجيتالية_306.jpeg",
+        "src": "/assets/alumni/ghana-mohammad-al-shamasat/phases/phase-3.jpeg"
+      },
+      {
+        "original_name": "الاستوديو الثاني_34.jpg",
+        "src": "/assets/alumni/ghana-mohammad-al-shamasat/phases/phase-4.jpg"
+      },
+      {
+        "original_name": "الاستوديو الثاني_568.jpg",
+        "src": "/assets/alumni/ghana-mohammad-al-shamasat/phases/phase-5.jpg"
+      },
+      {
+        "original_name": "زمالة تواصل مع قوتك_43.jpg",
+        "src": "/assets/alumni/ghana-mohammad-al-shamasat/phases/phase-6.jpg"
+      }
+    ]
+  },
+  "joud-omar-al-haddar": {
+    "name": "جود عمر الهدار",
+    "portrait": "/assets/alumni/joud-omar-al-haddar/portrait.jpg",
+    "phase_photos": [
+      {
+        "original_name": "اساسيات الحاسوب والطلاقة الديجيتالية_134.jpeg",
+        "src": "/assets/alumni/joud-omar-al-haddar/phases/phase-1.jpeg"
+      },
+      {
+        "original_name": "اساسيات الحاسوب والطلاقة الديجيتالية_268.jpeg",
+        "src": "/assets/alumni/joud-omar-al-haddar/phases/phase-2.jpeg"
+      },
+      {
+        "original_name": "اساسيات الحاسوب والطلاقة الديجيتالية_416.jpeg",
+        "src": "/assets/alumni/joud-omar-al-haddar/phases/phase-3.jpeg"
+      },
+      {
+        "original_name": "الاستوديو الاول_111.jpg",
+        "src": "/assets/alumni/joud-omar-al-haddar/phases/phase-4.jpg"
+      },
+      {
+        "original_name": "الاستوديو الثاني_135.jpg",
+        "src": "/assets/alumni/joud-omar-al-haddar/phases/phase-5.jpg"
+      },
+      {
+        "original_name": "الاستوديو الثاني_305.jpg",
+        "src": "/assets/alumni/joud-omar-al-haddar/phases/phase-6.jpg"
+      },
+      {
+        "original_name": "الاستوديو الثاني_34.jpg",
+        "src": "/assets/alumni/joud-omar-al-haddar/phases/phase-7.jpg"
+      },
+      {
+        "original_name": "الاستوديو الثاني_374.jpg",
+        "src": "/assets/alumni/joud-omar-al-haddar/phases/phase-8.jpg"
+      },
+      {
+        "original_name": "الاستوديو الثاني_534.jpg",
+        "src": "/assets/alumni/joud-omar-al-haddar/phases/phase-9.jpg"
+      },
+      {
+        "original_name": "المرحلة التأسيسية_392.jpeg",
+        "src": "/assets/alumni/joud-omar-al-haddar/phases/phase-10.jpeg"
+      },
+      {
+        "original_name": "المرحلة التأسيسية_426.jpeg",
+        "src": "/assets/alumni/joud-omar-al-haddar/phases/phase-11.jpeg"
+      },
+      {
+        "original_name": "المرحلة التأسيسية_453.jpeg",
+        "src": "/assets/alumni/joud-omar-al-haddar/phases/phase-12.jpeg"
+      }
+    ]
+  },
+  "karam-omar-al-haddar": {
+    "name": "كرم عمر الهدار",
+    "portrait": "/assets/alumni/karam-omar-al-haddar/portrait.jpg",
+    "phase_photos": [
+      {
+        "original_name": "اساسيات الحاسوب والطلاقة الديجيتالية_138.jpeg",
+        "src": "/assets/alumni/karam-omar-al-haddar/phases/phase-1.jpeg"
+      },
+      {
+        "original_name": "اساسيات الحاسوب والطلاقة الديجيتالية_184.jpeg",
+        "src": "/assets/alumni/karam-omar-al-haddar/phases/phase-2.jpeg"
+      },
+      {
+        "original_name": "اساسيات الحاسوب والطلاقة الديجيتالية_249.jpeg",
+        "src": "/assets/alumni/karam-omar-al-haddar/phases/phase-3.jpeg"
+      },
+      {
+        "original_name": "اساسيات الحاسوب والطلاقة الديجيتالية_262.jpeg",
+        "src": "/assets/alumni/karam-omar-al-haddar/phases/phase-4.jpeg"
+      },
+      {
+        "original_name": "الاستوديو الاول_262.jpg",
+        "src": "/assets/alumni/karam-omar-al-haddar/phases/phase-5.jpg"
+      },
+      {
+        "original_name": "الاستوديو الثاني_146.jpg",
+        "src": "/assets/alumni/karam-omar-al-haddar/phases/phase-6.jpg"
+      },
+      {
+        "original_name": "الاستوديو الثاني_395.jpg",
+        "src": "/assets/alumni/karam-omar-al-haddar/phases/phase-7.jpg"
+      },
+      {
+        "original_name": "المرحلة التأسيسية_430.jpeg",
+        "src": "/assets/alumni/karam-omar-al-haddar/phases/phase-8.jpeg"
+      },
+      {
+        "original_name": "المرحلة التأسيسية_517.jpeg",
+        "src": "/assets/alumni/karam-omar-al-haddar/phases/phase-9.jpeg"
+      },
+      {
+        "original_name": "زمالة تواصل مع قوتك_115.jpg",
+        "src": "/assets/alumni/karam-omar-al-haddar/phases/phase-10.jpg"
+      }
+    ]
+  },
+  "omar-alaa-al-farahid": {
+    "name": "عمر علاء الفراهيد",
+    "portrait": "/assets/alumni/omar-alaa-al-farahid/portrait.jpg",
+    "phase_photos": [
+      {
+        "original_name": "اساسيات الحاسوب والطلاقة الديجيتالية_117.jpeg",
+        "src": "/assets/alumni/omar-alaa-al-farahid/phases/phase-1.jpeg"
+      },
+      {
+        "original_name": "اساسيات الحاسوب والطلاقة الديجيتالية_131.jpeg",
+        "src": "/assets/alumni/omar-alaa-al-farahid/phases/phase-2.jpeg"
+      },
+      {
+        "original_name": "الاستوديو الاول_154.jpg",
+        "src": "/assets/alumni/omar-alaa-al-farahid/phases/phase-3.jpg"
+      },
+      {
+        "original_name": "الاستوديو الثاني_125.jpg",
+        "src": "/assets/alumni/omar-alaa-al-farahid/phases/phase-4.jpg"
+      },
+      {
+        "original_name": "الاستوديو الثاني_265.jpg",
+        "src": "/assets/alumni/omar-alaa-al-farahid/phases/phase-5.jpg"
+      },
+      {
+        "original_name": "الاستوديو الثاني_52.jpg",
+        "src": "/assets/alumni/omar-alaa-al-farahid/phases/phase-6.jpg"
+      },
+      {
+        "original_name": "الاستوديو الثاني_573.jpg",
+        "src": "/assets/alumni/omar-alaa-al-farahid/phases/phase-7.jpg"
+      },
+      {
+        "original_name": "المرحلة التأسيسية_311.jpeg",
+        "src": "/assets/alumni/omar-alaa-al-farahid/phases/phase-8.jpeg"
+      }
+    ]
+  },
+  "mawaddah-marwan-al-qaisi": {
+    "name": "مودة مروان القيسي",
+    "portrait": "/assets/alumni/mawaddah-marwan-al-qaisi/portrait.jpg",
+    "phase_photos": [
+      {
+        "original_name": "اساسيات الحاسوب والطلاقة الديجيتالية_3.jpeg",
+        "src": "/assets/alumni/mawaddah-marwan-al-qaisi/phases/phase-1.jpeg"
+      },
+      {
+        "original_name": "اساسيات الحاسوب والطلاقة الديجيتالية_416.jpeg",
+        "src": "/assets/alumni/mawaddah-marwan-al-qaisi/phases/phase-2.jpeg"
+      },
+      {
+        "original_name": "اساسيات الحاسوب والطلاقة الديجيتالية_94.jpeg",
+        "src": "/assets/alumni/mawaddah-marwan-al-qaisi/phases/phase-3.jpeg"
+      },
+      {
+        "original_name": "الاستوديو الاول_321.jpg",
+        "src": "/assets/alumni/mawaddah-marwan-al-qaisi/phases/phase-4.jpg"
+      },
+      {
+        "original_name": "الاستوديو الثاني_211.jpg",
+        "src": "/assets/alumni/mawaddah-marwan-al-qaisi/phases/phase-5.jpg"
+      },
+      {
+        "original_name": "الاستوديو الثاني_34.jpg",
+        "src": "/assets/alumni/mawaddah-marwan-al-qaisi/phases/phase-6.jpg"
+      },
+      {
+        "original_name": "الاستوديو الثاني_372.jpg",
+        "src": "/assets/alumni/mawaddah-marwan-al-qaisi/phases/phase-7.jpg"
+      },
+      {
+        "original_name": "زمالة تواصل مع قوتك_138.jpg",
+        "src": "/assets/alumni/mawaddah-marwan-al-qaisi/phases/phase-8.jpg"
+      }
+    ]
+  },
+  "mohammad-ali-al-owran": {
+    "name": "محمد علي العوران",
+    "portrait": "/assets/alumni/mohammad-ali-al-owran/portrait.jpg",
+    "phase_photos": [
+      {
+        "original_name": "اساسيات الحاسوب والطلاقة الديجيتالية_178.jpeg",
+        "src": "/assets/alumni/mohammad-ali-al-owran/phases/phase-1.jpeg"
+      },
+      {
+        "original_name": "اساسيات الحاسوب والطلاقة الديجيتالية_478.jpeg",
+        "src": "/assets/alumni/mohammad-ali-al-owran/phases/phase-2.jpeg"
+      },
+      {
+        "original_name": "الاستوديو الاول_207.jpg",
+        "src": "/assets/alumni/mohammad-ali-al-owran/phases/phase-3.jpg"
+      },
+      {
+        "original_name": "الاستوديو الثاني_121.jpg",
+        "src": "/assets/alumni/mohammad-ali-al-owran/phases/phase-4.jpg"
+      },
+      {
+        "original_name": "الاستوديو الثاني_42.jpg",
+        "src": "/assets/alumni/mohammad-ali-al-owran/phases/phase-5.jpg"
+      },
+      {
+        "original_name": "الاستوديو الثاني_490.jpg",
+        "src": "/assets/alumni/mohammad-ali-al-owran/phases/phase-6.jpg"
+      },
+      {
+        "original_name": "الاستوديو الثاني_513.jpg",
+        "src": "/assets/alumni/mohammad-ali-al-owran/phases/phase-7.jpg"
+      },
+      {
+        "original_name": "الاستوديو الثاني_569.jpg",
+        "src": "/assets/alumni/mohammad-ali-al-owran/phases/phase-8.jpg"
+      },
+      {
+        "original_name": "المرحلة التأسيسية_290.jpeg",
+        "src": "/assets/alumni/mohammad-ali-al-owran/phases/phase-9.jpeg"
+      }
+    ]
+  },
+  "mohammad-nabeel-al-marafi": {
+    "name": "محمد نبيل المرافي",
+    "portrait": "/assets/alumni/mohammad-nabeel-al-marafi/portrait.jpg",
+    "phase_photos": [
+      {
+        "original_name": "اساسيات الحاسوب والطلاقة الديجيتالية_12.jpeg",
+        "src": "/assets/alumni/mohammad-nabeel-al-marafi/phases/phase-1.jpeg"
+      },
+      {
+        "original_name": "اساسيات الحاسوب والطلاقة الديجيتالية_23.jpeg",
+        "src": "/assets/alumni/mohammad-nabeel-al-marafi/phases/phase-2.jpeg"
+      },
+      {
+        "original_name": "اساسيات الحاسوب والطلاقة الديجيتالية_51.jpeg",
+        "src": "/assets/alumni/mohammad-nabeel-al-marafi/phases/phase-3.jpeg"
+      },
+      {
+        "original_name": "الاستوديو الثاني_570.jpg",
+        "src": "/assets/alumni/mohammad-nabeel-al-marafi/phases/phase-4.jpg"
+      },
+      {
+        "original_name": "المرحلة التأسيسية_428.jpeg",
+        "src": "/assets/alumni/mohammad-nabeel-al-marafi/phases/phase-5.jpeg"
+      },
+      {
+        "original_name": "المرحلة التأسيسية_518.jpeg",
+        "src": "/assets/alumni/mohammad-nabeel-al-marafi/phases/phase-6.jpeg"
+      },
+      {
+        "original_name": "زمالة تواصل مع قوتك_89.jpg",
+        "src": "/assets/alumni/mohammad-nabeel-al-marafi/phases/phase-7.jpg"
+      }
+    ]
+  },
+  "sara-omar-al-sawalqah": {
+    "name": "ساره عمر السوالقه",
+    "portrait": "/assets/alumni/sara-omar-al-sawalqah/portrait.webp",
+    "phase_photos": []
+  },
+  "maryam-abdulkarim-al-furaij": {
+    "name": "مريم عبدالكريم الفريجات",
+    "portrait": "/assets/alumni/maryam-abdulkarim-al-furaij/portrait.webp",
+    "phase_photos": []
+  },
+  "abdulrahman-ziad-al-naanaah": {
+    "name": "عبدالرحمن زياد النعانعة",
+    "portrait": "/assets/alumni/abdulrahman-ziad-al-naanaah/portrait.jpg",
+    "phase_photos": [
+      {
+        "original_name": "الاستوديو الاول_8.jpg",
+        "src": "/assets/alumni/abdulrahman-ziad-al-naanaah/phases/phase-1.jpg"
+      },
+      {
+        "original_name": "الاستوديو الثاني_377.jpg",
+        "src": "/assets/alumni/abdulrahman-ziad-al-naanaah/phases/phase-2.jpg"
+      },
+      {
+        "original_name": "الاستوديو الثاني_392.jpg",
+        "src": "/assets/alumni/abdulrahman-ziad-al-naanaah/phases/phase-3.jpg"
+      },
+      {
+        "original_name": "الاستوديو الثاني_491.jpg",
+        "src": "/assets/alumni/abdulrahman-ziad-al-naanaah/phases/phase-4.jpg"
+      },
+      {
+        "original_name": "الاستوديو الثاني_537.jpg",
+        "src": "/assets/alumni/abdulrahman-ziad-al-naanaah/phases/phase-5.jpg"
+      },
+      {
+        "original_name": "الاستوديو الثاني_560.jpg",
+        "src": "/assets/alumni/abdulrahman-ziad-al-naanaah/phases/phase-6.jpg"
+      },
+      {
+        "original_name": "المرحلة التأسيسية_309.jpeg",
+        "src": "/assets/alumni/abdulrahman-ziad-al-naanaah/phases/phase-7.jpeg"
+      },
+      {
+        "original_name": "المرحلة التأسيسية_338.jpeg",
+        "src": "/assets/alumni/abdulrahman-ziad-al-naanaah/phases/phase-8.jpeg"
+      },
+      {
+        "original_name": "المرحلة التأسيسية_414.jpeg",
+        "src": "/assets/alumni/abdulrahman-ziad-al-naanaah/phases/phase-9.jpeg"
+      },
+      {
+        "original_name": "المرحلة التأسيسية_95.jpeg",
+        "src": "/assets/alumni/abdulrahman-ziad-al-naanaah/phases/phase-10.jpeg"
+      }
+    ]
+  },
+  "mohammad-al-masri": {
+    "name": "محمد المصري",
+    "portrait": "/assets/alumni/mohammad-al-masri/portrait.jpg",
+    "phase_photos": [
+      {
+        "original_name": "الاستوديو الاول_232.jpg",
+        "src": "/assets/alumni/mohammad-al-masri/phases/phase-1.jpg"
+      },
+      {
+        "original_name": "الاستوديو الاول_256.jpg",
+        "src": "/assets/alumni/mohammad-al-masri/phases/phase-2.jpg"
+      },
+      {
+        "original_name": "الاستوديو الثاني_124.jpg",
+        "src": "/assets/alumni/mohammad-al-masri/phases/phase-3.jpg"
+      },
+      {
+        "original_name": "الاستوديو الثاني_251.jpg",
+        "src": "/assets/alumni/mohammad-al-masri/phases/phase-4.jpg"
+      },
+      {
+        "original_name": "الاستوديو الثاني_379.jpg",
+        "src": "/assets/alumni/mohammad-al-masri/phases/phase-5.jpg"
+      },
+      {
+        "original_name": "الاستوديو الثاني_511.jpg",
+        "src": "/assets/alumni/mohammad-al-masri/phases/phase-6.jpg"
+      },
+      {
+        "original_name": "الاستوديو الثاني_574.jpg",
+        "src": "/assets/alumni/mohammad-al-masri/phases/phase-7.jpg"
+      }
+    ]
+  }
+}
