@@ -71,12 +71,12 @@ export function TabList<Id extends string>({
   };
 
   return (
-    <div className="flex items-center justify-center">
+    <div className="flex items-center justify-center max-w-full overflow-hidden px-1">
       <div
         role="tablist"
         aria-label={label}
         onKeyDown={handleKeyDown}
-        className="inline-flex max-w-full flex-wrap items-center justify-center gap-1 rounded-pill border border-line bg-surface/90 p-1.5 shadow-sm backdrop-blur-md"
+        className="inline-flex max-w-full overflow-x-auto no-scrollbar scrollbar-none flex-nowrap sm:flex-wrap items-center justify-start sm:justify-center gap-1 rounded-2xl sm:rounded-pill border border-line bg-surface/90 p-1.5 shadow-sm backdrop-blur-md"
       >
         {tabs.map((tab) => {
           const isActive = tab.id === activeTab;

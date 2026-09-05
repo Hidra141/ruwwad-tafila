@@ -84,14 +84,14 @@ export function HomeHero() {
 
           {/* Main Heading */}
           <Reveal variant="slide-up" delay={0.1}>
-            <h1 className="mt-6 text-4xl font-extrabold tracking-tight text-neutral-0 drop-shadow-md sm:text-5xl lg:text-7xl lg:leading-[1.15]">
+            <h1 className="mt-4 sm:mt-6 text-3xl font-extrabold tracking-tight text-neutral-0 drop-shadow-md sm:text-5xl lg:text-7xl lg:leading-[1.15]">
               كل رحلة تبدأ بخطوة.
             </h1>
           </Reveal>
 
           {/* Supporting Text */}
           <Reveal variant="slide-up" delay={0.2}>
-            <p className="mx-auto mt-6 max-w-3xl text-lg leading-relaxed text-neutral-0/95 drop-shadow-sm sm:text-xl lg:text-2xl lg:leading-relaxed">
+            <p className="mx-auto mt-4 sm:mt-6 max-w-3xl text-sm sm:text-xl lg:text-2xl leading-relaxed text-neutral-0/95 drop-shadow-sm">
               منذ 2012، بدأنا في الطفيلة رحلة نصنع فيها مساحة يتعلم فيها الشباب
               واليافعون، ويشاركون، ويكتشفون قدراتهم، ويساهمون في مجتمعهم.
             </p>
@@ -99,7 +99,7 @@ export function HomeHero() {
 
           {/* CTAs */}
           <Reveal variant="slide-up" delay={0.3}>
-            <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
+            <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 sm:gap-4 max-w-sm sm:max-w-none mx-auto">
               <Link
                 href={routes.about}
                 className="press inline-flex min-h-12 items-center justify-center rounded-pill bg-primary px-8 text-base font-bold text-ink-inverse shadow-[0_2px_4px_rgb(8_46_60/0.12),0_10px_24px_-8px_rgb(10_113_145/0.55)] hover:bg-primary-hover"
@@ -123,7 +123,7 @@ export function HomeHero() {
 
               <Link
                 href={routes.about}
-                className="inline-flex items-center justify-center rounded-lg border border-neutral-0/40 bg-neutral-0/10 px-8 py-3.5 text-base font-bold text-neutral-0 backdrop-blur-md transition-colors hover:bg-neutral-0/20 focus-visible:outline-2 focus-visible:outline-white"
+                className="inline-flex items-center justify-center rounded-pill sm:rounded-lg border border-neutral-0/40 bg-neutral-0/10 px-8 py-3.5 text-base font-bold text-neutral-0 backdrop-blur-md transition-colors hover:bg-neutral-0/20 focus-visible:outline-2 focus-visible:outline-white"
               >
                 من نحن
               </Link>

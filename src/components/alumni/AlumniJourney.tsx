@@ -172,27 +172,39 @@ export function AlumniJourney({
               {/* Real Stage Photo Column (5 Cols) */}
               <div className="lg:col-span-5 w-full">
                 {displayPhoto ? (
-                  <figure className="flex flex-col gap-2">
-                    <div className="relative overflow-hidden rounded-2xl border border-line bg-surface-sunken shadow-md group">
-                      <ResponsiveMedia ratio="landscape" rounded={false}>
+                  <figure className="flex flex-col gap-2.5">
+                    <div className="relative group overflow-hidden rounded-3xl border border-line bg-surface-sunken/80 shadow-md h-[340px] sm:h-[390px] lg:h-[420px] flex items-center justify-center p-2 sm:p-3">
+                      {/* Subtle Ambient Backdrop */}
+                      <div
+                        aria-hidden="true"
+                        className="absolute inset-0 bg-cover bg-center blur-2xl opacity-20 scale-125 transition-transform duration-700 pointer-events-none"
+                        style={{ backgroundImage: `url(${displayPhoto.src})` }}
+                      />
+
+                      {/* Foreground Image Container */}
+                      <div className="relative z-10 w-full h-full overflow-hidden rounded-2xl flex items-center justify-center">
                         <ImageFrame
                           image={displayPhoto}
                           fill
                           priority
-                          sizes="(min-width: 64rem) 28rem, (min-width: 48rem) 20rem, 100vw"
-                          imageClassName="media-zoom object-cover object-center"
+                          sizes="(min-width: 64rem) 28rem, (min-width: 48rem) 22rem, 100vw"
+                          imageClassName="object-contain w-full h-full drop-shadow-sm transition-transform duration-500 group-hover:scale-[1.02]"
                         />
-                      </ResponsiveMedia>
+                      </div>
+
+                      {/* Floating Stage Indicator */}
+                      <div className="absolute top-3.5 end-3.5 z-20 backdrop-blur-md bg-ink/80 text-white border border-white/20 text-[0.65rem] sm:text-xs font-black px-3 py-1 rounded-full shadow-sm flex items-center gap-1.5">
+                        <span className="size-1.5 rounded-full bg-brand-400 animate-pulse" />
+                        <span>محطة 0{activeIdx + 1}</span>
+                      </div>
                     </div>
-                    {/* The archive records which phase a photograph belongs
-                        to, and nothing about who is in it. Naming the graduate
-                        here asserted the second. */}
-                    <figcaption className="text-center text-xs text-ink-subtle">
-                      من جلسات {activeStageName}
+
+                    <figcaption className="flex items-center justify-center gap-1.5 text-center text-xs font-bold text-ink-subtle">
+                      <span>من توثيق ورشات {activeStageName}</span>
                     </figcaption>
                   </figure>
                 ) : (
-                  <div className="flex h-48 items-center justify-center rounded-2xl border border-dashed border-line bg-surface-sunken p-6 text-center text-xs text-ink-subtle">
+                  <div className="flex h-56 items-center justify-center rounded-3xl border border-dashed border-line bg-surface-sunken p-6 text-center text-xs text-ink-subtle">
                     صورة هذه المرحلة قيد التوثيق
                   </div>
                 )}

@@ -34,7 +34,7 @@ export function AlumniCard({ alumni, priority = false }: AlumniCardProps) {
     <article className="h-full">
       <Link
         href={routes.alumniProfile(alumni.slug)}
-        className="lift group flex h-full flex-col justify-between gap-3 rounded-2xl border border-line bg-surface p-4 shadow-xs hover:border-brand-300"
+        className="lift group flex h-full flex-col justify-between gap-2.5 sm:gap-3 rounded-2xl border border-line bg-surface p-2.5 sm:p-4 shadow-xs hover:border-brand-300"
       >
         <ResponsiveMedia ratio="portrait" className="relative overflow-hidden rounded-xl bg-surface-sunken">
           {alumni.portrait ? (
@@ -43,7 +43,7 @@ export function AlumniCard({ alumni, priority = false }: AlumniCardProps) {
                 image={alumni.portrait}
                 fill
                 priority={priority}
-                sizes="(min-width: 64rem) 33vw, (min-width: 48rem) 50vw, 100vw"
+                sizes="(min-width: 64rem) 33vw, (min-width: 48rem) 50vw, 50vw"
                 quality={90}
                 imageClassName="media-zoom object-cover object-top brightness-[1.01] contrast-[1.02] saturate-[0.98]"
               />
@@ -58,24 +58,28 @@ export function AlumniCard({ alumni, priority = false }: AlumniCardProps) {
                 alt: { ar: `لا تتوفر صورة لـ${name}` },
               }}
               fill
-              sizes="(min-width: 64rem) 33vw, (min-width: 48rem) 50vw, 100vw"
+              sizes="(min-width: 64rem) 33vw, (min-width: 48rem) 50vw, 50vw"
               imageClassName="object-cover"
             />
           )}
         </ResponsiveMedia>
 
-        <div className="flex flex-col gap-1 mt-1">
-          <h3 className="text-lg font-bold text-ink group-hover:text-ink-brand transition-colors">
+        <div className="flex flex-col gap-0.5 sm:gap-1 mt-0.5">
+          <h3 className="text-sm sm:text-lg font-black sm:font-bold text-ink group-hover:text-ink-brand transition-colors line-clamp-1">
             {name}
           </h3>
-          <p className="text-xs font-semibold text-ink-subtle">{cohortText}</p>
-          {voiceQuote ? <p className="text-sm text-ink-muted line-clamp-2 mt-1">{voiceQuote}</p> : null}
-          <div className="mt-2 flex items-center gap-1.5 text-xs font-bold text-ink-brand">
-            <span>اكتشف القصة الكاملة</span>
+          <p className="text-[0.65rem] sm:text-xs font-semibold text-ink-subtle line-clamp-1">{cohortText}</p>
+          {voiceQuote ? (
+            <p className="text-[0.7rem] sm:text-sm text-ink-muted line-clamp-1 sm:line-clamp-2 mt-0.5 sm:mt-1">
+              {voiceQuote}
+            </p>
+          ) : null}
+          <div className="mt-1.5 sm:mt-2 flex items-center gap-1 sm:gap-1.5 text-[0.65rem] sm:text-xs font-bold text-ink-brand">
+            <span>اكتشف القصة</span>
             <svg
               viewBox="0 0 24 24"
               aria-hidden="true"
-              className="size-3.5 transition-transform duration-[var(--duration-fast)] group-hover:-translate-x-1 rtl:rotate-180"
+              className="size-3 sm:size-3.5 transition-transform duration-[var(--duration-fast)] group-hover:-translate-x-1 rtl:rotate-180"
               fill="none"
               stroke="currentColor"
               strokeWidth="2.5"
