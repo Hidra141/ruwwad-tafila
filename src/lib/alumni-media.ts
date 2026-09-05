@@ -1,6 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 
+import { alumniJourneyPhotosMap } from "@/data/alumni-journey-photos";
 import type { AlumniStageId, LocalizedText } from "@/types";
 
 /**
@@ -41,15 +42,12 @@ export function getStagePhoto(
   graduateName: string,
   stageName: string,
 ): StagePhoto | undefined {
-  for (const extension of EXTENSIONS) {
-    const relative = `${slug}/${stageId}.${extension}`;
-    if (!fs.existsSync(path.join(JOURNEY_DIR, relative))) continue;
-    return {
-      src: `/assets/alumni/journey/${relative}`,
-      alt: { ar: `${graduateName} في ${stageName}` },
-    };
-  }
-  return undefined;
+  const src = alumniJourneyPhotosMap[slug]?.[stageId];
+  if (!src) return undefined;
+  return {
+    src,
+    alt: { ar: `${graduateName} في ${stageName}` },
+  };
 }
 
 /** Whether any journey photograph exists for a graduate. */

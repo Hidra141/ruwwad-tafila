@@ -44,18 +44,18 @@ export function HomeImpact() {
           </Reveal>
         </div>
 
-        <div className="mt-16 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-8 sm:mt-16 grid grid-cols-2 gap-3.5 sm:gap-6 lg:grid-cols-4">
           {verifiedImpactFacts.map((fact, idx) => (
             <Reveal key={fact.label} variant="slide-up" delay={idx * 0.1}>
-              <div className="flex h-full flex-col justify-between rounded-2xl border border-line bg-surface p-7 shadow-xs">
+              <div className="flex h-full flex-col justify-between rounded-2xl border border-line bg-surface p-4 sm:p-7 shadow-xs">
                 <div>
-                  <span className="text-3xl font-black tracking-tight text-ink-brand sm:text-4xl">
+                  <span className="text-2xl sm:text-4xl font-black tracking-tight text-ink-brand">
                     {fact.value}
                   </span>
-                  <h3 className="mt-3 text-lg font-bold text-ink">
+                  <h3 className="mt-1.5 sm:mt-3 text-sm sm:text-lg font-bold text-ink line-clamp-1">
                     {fact.label}
                   </h3>
-                  <p className="mt-2 text-sm leading-relaxed text-ink-muted">
+                  <p className="mt-1 sm:mt-2 text-xs sm:text-sm leading-relaxed text-ink-muted line-clamp-2 sm:line-clamp-none">
                     {fact.description}
                   </p>
                 </div>
