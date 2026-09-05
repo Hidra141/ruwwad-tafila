@@ -11,19 +11,24 @@ import { ResponsiveMedia } from "@/components/media/ResponsiveMedia";
 import { youthProgramContent } from "@/data/youth-program";
 import { t, tRich } from "@/lib/i18n";
 
-type MainTab = "overview" | "timeline" | "impact" | "highlights" | "drosos";
+type MainTab = "overview" | "timeline" | "impact" | "highlights";
 
 const TABS: Array<{ id: MainTab; label: string }> = [
   { id: "overview", label: "الفكرة والهدف" },
   { id: "timeline", label: "مسيرة الأعوام" },
   { id: "impact", label: "الأثر والمجتمع" },
   { id: "highlights", label: "الإنجازات" },
-  { id: "drosos", label: "مشروع دروسوس" },
 ];
 
 export function YouthTabbedExplorer() {
   const [activeTab, setActiveTab] = useState<MainTab>("overview");
-  const [selectedYear, setSelectedYear] = useState<number>(2025);
+  /* The first year in the record, not a literal. This was hard-coded to 2025,
+     so a tab called "مسيرة الأعوام" opened on the last year of the journey and
+     the reader met the end before the beginning — and the number would have
+     gone stale the moment a new year was added. */
+  const [selectedYear, setSelectedYear] = useState<number>(
+    youthProgramContent.timeline[0].year,
+  );
 
   const activeTimelineYear =
     youthProgramContent.timeline.find((item) => item.year === selectedYear) ??
@@ -282,43 +287,6 @@ export function YouthTabbedExplorer() {
           </Reveal>
         )}
 
-        {/* Tab 5: Drosos Project Inside */}
-        {activeTab === "drosos" && (
-          <Reveal variant="slide-up">
-            <div className="relative overflow-hidden rounded-3xl border border-brand-200 bg-gradient-to-br from-brand-600 via-brand-700 to-brand-900 p-8 text-white shadow-xl md:p-12">
-              <div className="relative z-10 flex flex-col gap-6">
-                <span className="inline-flex w-fit rounded-full bg-white/20 px-3.5 py-1 text-xs font-bold text-white backdrop-blur-md">
-                  مشروع جسور الكرامة – دروسوس
-                </span>
-
-                <h3 className="text-2xl font-black text-white md:text-3xl">
-                  {t(youthProgramContent.drosos.title)}
-                </h3>
-
-                <p className="text-base leading-relaxed text-brand-100 md:text-lg max-w-3xl">
-                  {t(youthProgramContent.drosos.description)}
-                </p>
-
-                <div className="pt-4 border-t border-white/20">
-                  <h4 className="text-xs font-bold uppercase tracking-wider text-brand-200 mb-3">
-                    المخرجات الرئيسية للمشروع:
-                  </h4>
-                  <div className="flex flex-wrap gap-2.5">
-                    {youthProgramContent.drosos.outcomes.map((o, idx) => (
-                      <span
-                        key={idx}
-                        className="inline-flex items-center gap-1.5 rounded-pill bg-white/15 px-3.5 py-1.5 text-xs font-bold text-white backdrop-blur-md"
-                      >
-                        <Icon name="check" className="size-3.5" />
-                        {t(o)}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </div>
-          </Reveal>
-        )}
         </TabPanel>
       </Container>
     </Section>

@@ -1,6 +1,6 @@
 import { buildMetadata } from "@/lib/metadata";
 import { AlumniArchive } from "@/sections/alumni/AlumniArchive";
-import { AlumniIntro } from "@/sections/alumni/AlumniIntro";
+import { AlumniHero } from "@/sections/alumni/AlumniHero";
 
 export const metadata = buildMetadata({
   title: "الخريجون",
@@ -10,7 +10,7 @@ export const metadata = buildMetadata({
 export default function AlumniPage() {
   return (
     <>
-      <AlumniIntro />
+      <AlumniHero />
       <AlumniArchive />
     </>
   );

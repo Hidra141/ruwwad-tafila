@@ -1,65 +1,60 @@
-import { Container } from "@/components/ui/Container";
-import { Section } from "@/components/ui/Section";
-import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Reveal } from "@/components/motion/Reveal";
+import { Container } from "@/components/ui/Container";
+import { Icon } from "@/components/ui/Icon";
+import { SectionSurface } from "@/components/ui/SectionSurface";
+import { SectionHeading } from "@/components/ui/SectionHeading";
+import { pillars } from "@/data/about";
 
-const corePrograms = [
-  {
-    title: "صندوق منح روّاد الشبابية",
-    description: "توفير المنح الجامعية للشباب بالطفيلة (283 مستفيد، 126 خريج حتى اليوم) مقترنة بساعات الخدمة المجتمعية والتمكين القيادي.",
-    stats: "283 مستفيداً • 126 خريجاً",
-    icon: "🎓",
-  },
-  {
-    title: "برنامج تمكين اليافعين (دروسوس)",
-    description: "بناء قدرات 20 يافعاً ويافعة سنوياً عبر 55 جلسة في التمكين النفسي، الطلاقة الرقمية، التفكير التصميمي، واستوديو الطباعة 3D.",
-    stats: "20 يافعاً • 55 جلسة",
-    icon: "💡",
-  },
-  {
-    title: "برنامج تنمية الطفل والنوادي الصيفية",
-    description: "تنظيم النوادي الصيفية والأنشطة الإبداعية للأطفال في قرى الطفيلة (مثل عيمة) لتعزيز حب التعلم والشغف بالابتكار.",
-    stats: "نوادٍ صيفية في القرى",
-    icon: "🌱",
-  },
-  {
-    title: "الدعم والتمكين المجتمعي والريادة",
-    description: "الشراكة التراكمية مع 420 جهة (97 مدرسة، 27 مؤسسة حكومية، 49 شركة خاصة، 11 جمعية) وإطلاق 168 مبادرة لخدمة 10.4K+ شخص.",
-    stats: "420 شريكاً • 168 مبادرة",
-    icon: "🤝",
-  },
-];
-
+/**
+ * The four programme tracks the centre runs.
+ *
+ * This section used to open the page, directly under the hero, which put "what
+ * we run" ahead of "how this started" on a page called قصتنا. It now sits
+ * after the story and the timeline, where it answers the question the history
+ * leaves behind: so what does the centre actually do today.
+ *
+ * The cards previously led with an emoji. `Icon` exists precisely to replace
+ * those — see its own file for why — and the figures come from `data/about`
+ * rather than being retyped here.
+ */
 export function AboutMission() {
   return (
-    <Section spacing="compact" ariaLabelledBy="about-mission" className="py-12 md:py-16 bg-surface-muted/50 border-y border-line">
+    <SectionSurface
+      id="pillars"
+      surface="raised"
+      ariaLabelledBy="about-pillars-title"
+    >
       <Container className="flex flex-col gap-10">
         <SectionHeading
-          id="about-mission"
-          title="محاور عملنا ورسالتنا بالطفيلة"
-          description="نعمل من خلال نموذج تنموي شامل يستثمر في طاقات الشباب واليافعين والأطفال لتمكين المجتمع المحلي."
+          id="about-pillars-title"
+          eyebrow="محاور العمل"
+          title="ما الذي يعمل عليه المركز اليوم"
+          description="نموذج تنموي متكامل يستثمر في الشباب واليافعين والأطفال، ويعمل مع المجتمع المحلي لا بالنيابة عنه."
         />
 
-        <Reveal variant="slide-up">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            {corePrograms.map((prog, idx) => (
-              <div
-                key={idx}
-                className="flex flex-col justify-between gap-4 rounded-2xl border border-line bg-surface p-5 shadow-xs transition-all hover:-translate-y-1 hover:shadow-md"
-              >
-                <div className="flex flex-col gap-3">
-                  <span className="text-3xl">{prog.icon}</span>
-                  <h3 className="text-base font-black text-ink">{prog.title}</h3>
-                  <p className="text-xs leading-relaxed text-ink-muted">{prog.description}</p>
-                </div>
-                <span className="inline-flex rounded-xl bg-brand-50 border border-brand-200 px-3 py-1 text-[0.7rem] font-extrabold text-brand-800">
-                  {prog.stats}
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {pillars.map((pillar, index) => (
+            <Reveal
+              key={pillar.title}
+              variant="slide-up"
+              delay={index * 0.06}
+              className="h-full"
+            >
+              <article className="lift flex h-full flex-col gap-3 rounded-2xl border border-line bg-surface p-6 shadow-xs">
+                <span className="flex size-11 items-center justify-center rounded-xl border border-brand-200 bg-primary-soft text-ink-brand">
+                  <Icon name={pillar.icon} className="size-5" />
                 </span>
-              </div>
-            ))}
-          </div>
-        </Reveal>
+                <h3 className="text-base font-semibold leading-snug text-ink">
+                  {pillar.title}
+                </h3>
+                <p className="text-sm leading-relaxed text-ink-muted">
+                  {pillar.description}
+                </p>
+              </article>
+            </Reveal>
+          ))}
+        </div>
       </Container>
-    </Section>
+    </SectionSurface>
   );
 }

@@ -2,19 +2,9 @@ import { ImageFrame } from "@/components/media/ImageFrame";
 import { ResponsiveMedia } from "@/components/media/ResponsiveMedia";
 import { Reveal } from "@/components/motion/Reveal";
 import { alumniStageById } from "@/data/alumni-stages";
-import { drososPhasePhotos } from "@/data/drosos-journey";
 import { getStagePhoto } from "@/lib/alumni-media";
 import { t } from "@/lib/i18n";
 import type { AlumniJourneyEntry } from "@/types";
-
-/** The alumni phase ids and the Drosos phase folders are named differently. */
-const STAGE_TO_PHASE: Record<string, string> = {
-  foundation: "design-foundation",
-  "digital-fluency": "digital-fluency",
-  "studio-green-circuit": "studio-one",
-  "studio-innovate-earth": "studio-two",
-  fellowship: "fellowship",
-};
 
 interface AlumniJourneyStageProps {
   entry: AlumniJourneyEntry;
@@ -45,18 +35,21 @@ export function AlumniJourneyStage({
   const stage = alumniStageById[entry.stageId];
   const ordinal = String(index + 1).padStart(2, "0");
   const stageName = t(stage.title);
+  /*
+    Their own photograph or none at all.
+
+    This used to fall back to the programme's generic session pool, choosing
+    one by hashing the graduate's slug — so a graduate with no photographs of
+    their own got a picture of somebody else, captioned with their name and
+    the phase. Two graduates have no folder, and both of their pages were
+    filled that way.
+
+    A caption naming a person over a photograph of a different person is not a
+    placeholder; it is a false statement about someone. Nothing is shown now,
+    and the phase reads as text.
+  */
   const photo = getStagePhoto(slug, entry.stageId, graduateName, stageName);
-
-  const phasePhotos = drososPhasePhotos[STAGE_TO_PHASE[entry.stageId]] ?? [];
-  const fallback =
-    !photo && phasePhotos.length > 0
-      ? phasePhotos[
-          [...slug].reduce((sum, ch) => sum + ch.charCodeAt(0), 0) %
-            phasePhotos.length
-        ]
-      : undefined;
-
-  const displayPhoto = photo ? { ...photo, width: 1200, height: 800 } : fallback;
+  const displayPhoto = photo ? { ...photo, width: 1200, height: 800 } : undefined;
 
   return (
     <li id={`stage-${entry.stageId}`} className="relative flex gap-4 sm:gap-7">
@@ -94,29 +87,44 @@ export function AlumniJourneyStage({
             </span>
           </div>
 
-          {/* Youth Quote & Learnings */}
+          {/* Youth Quote & Learnings.
+              The border marks the quotation; ASCII quotes around it as well
+              set the words inside two marks at once. */}
           {entry.words?.ar ? (
-            <blockquote className="mt-4 border-s-3 border-brand-400 ps-4 text-base font-medium leading-relaxed text-ink sm:text-lg">
-              <p>"{t(entry.words)}"</p>
+            <blockquote className="mt-4 border-s-3 border-brand-400 ps-4 text-base leading-relaxed text-ink sm:text-lg">
+              <p>{t(entry.words)}</p>
             </blockquote>
           ) : null}
 
-          {/* Stage Photo Frame */}
+          {/* --- The phase photograph -------------------------------------
+              `3 / 2` rather than the shared `landscape` ratio: these are
+              session photographs taken on phones in a room, and at 16/9 the
+              crop cut the tops of heads off. A shallower frame keeps the
+              people in it.
+
+              `object-center` rather than `object-[center_20%]`. That offset is
+              right for a posed portrait, where the face sits high in the
+              frame; here the subject is a group at a table and pulling the
+              crop upward pushed them out of the bottom of the frame. */}
           {displayPhoto ? (
             <figure className="mt-5">
-              <div className="overflow-hidden rounded-2xl border border-line bg-surface-sunken shadow-2xs">
+              <div className="overflow-hidden rounded-2xl border border-line bg-surface-sunken shadow-xs">
                 <ResponsiveMedia ratio="landscape" rounded={false}>
                   <ImageFrame
                     image={displayPhoto}
+                    sizes="(min-width: 64rem) 34rem, (min-width: 48rem) 44vw, 88vw"
                     fill
-                    sizes="(min-width: 48rem) 34rem, 90vw"
-                    imageClassName="object-cover object-[center_20%] transition-transform duration-700 group-hover:scale-105"
+                    imageClassName="media-zoom object-cover object-center"
                   />
                 </ResponsiveMedia>
               </div>
-              <figcaption className="mt-2.5 flex items-center justify-between text-xs font-semibold text-ink-subtle">
-                <span>صورة حقيقية من جلسة {stageName}</span>
-                <span className="text-brand-600 font-bold">{graduateName}</span>
+              {/* The caption said "صورة حقيقية من جلسة …" beside the
+                  graduate's name, which reads as "this is them, here". The
+                  archive records the phase a photograph belongs to and nothing
+                  more — not who is in it — so the caption now claims only
+                  that. */}
+              <figcaption className="mt-2.5 text-xs text-ink-subtle">
+                من جلسات {stageName}
               </figcaption>
             </figure>
           ) : null}

@@ -8,7 +8,6 @@ import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
 import { alumniStageById, alumniStages } from "@/data/alumni-stages";
 import { getStagePhotoClient } from "@/data/alumni-journey-photos";
-import { drososPhasePhotos } from "@/data/drosos-journey";
 import { t } from "@/lib/i18n";
 import type { AlumniJourneyEntry } from "@/types";
 
@@ -18,14 +17,6 @@ interface AlumniJourneyProps {
   graduateName: string;
   headingId: string;
 }
-
-const STAGE_TO_PHASE: Record<string, string> = {
-  foundation: "design-foundation",
-  "digital-fluency": "digital-fluency",
-  "studio-green-circuit": "studio-one",
-  "studio-innovate-earth": "studio-two",
-  fellowship: "fellowship",
-};
 
 const STAGE_ICONS: Record<string, string> = {
   fellowship: "⚡",
@@ -63,16 +54,21 @@ export function AlumniJourney({
   const activeStageName = t(activeStageDef.title);
   const activePhoto = getStagePhotoClient(slug, activeEntry.stageId, graduateName, activeStageName);
 
-  const phasePhotos = drososPhasePhotos[STAGE_TO_PHASE[activeEntry.stageId]] ?? [];
-  const fallback =
-    !activePhoto && phasePhotos.length > 0
-      ? phasePhotos[
-          [...slug].reduce((sum, ch) => sum + ch.charCodeAt(0), 0) %
-            phasePhotos.length
-        ]
-      : undefined;
+  /*
+    Their own photograph or none at all.
 
-  const displayPhoto = activePhoto ? { ...activePhoto, width: 1200, height: 800 } : fallback;
+    This fell back to the programme's generic session pool, choosing one by
+    hashing the graduate's slug — so the two graduates with no folder of their
+    own each got five photographs of other youths, captioned "صورة حقيقية من
+    جلسة <phase> — <her name>". A caption naming a person over a picture of a
+    different person is not a placeholder; it is a false statement about
+    someone, and it sat on the page of a named child.
+
+    The empty state further down already existed and says the honest thing.
+  */
+  const displayPhoto = activePhoto
+    ? { ...activePhoto, width: 1200, height: 800 }
+    : undefined;
 
   return (
     <Section spacing="compact" ariaLabelledBy={headingId} className="py-12 md:py-16">
@@ -151,8 +147,11 @@ export function AlumniJourney({
 
                 {activeEntry.words?.ar ? (
                   <blockquote className="relative rounded-2xl border-s-4 border-brand-500 bg-surface p-5 shadow-2xs">
-                    <p className="text-base sm:text-lg font-semibold leading-relaxed text-ink">
-                      "{t(activeEntry.words)}"
+                    {/* The border and the attribution line below already mark
+                        this as a quotation; ASCII quotes as well set the words
+                        inside two marks at once. */}
+                    <p className="text-base leading-relaxed text-ink sm:text-lg">
+                      {t(activeEntry.words)}
                     </p>
                     <span className="mt-3 block text-xs font-bold text-ink-subtle">
                       — بكلمات اليافع/ة {graduateName}
@@ -181,12 +180,15 @@ export function AlumniJourney({
                           fill
                           priority
                           sizes="(min-width: 64rem) 28rem, (min-width: 48rem) 20rem, 100vw"
-                          imageClassName="object-cover object-[center_20%] transition-transform duration-700 group-hover:scale-105"
+                          imageClassName="media-zoom object-cover object-center"
                         />
                       </ResponsiveMedia>
                     </div>
-                    <figcaption className="text-center text-xs font-extrabold text-ink-subtle">
-                      صورة حقيقية من جلسة {activeStageName} — {graduateName}
+                    {/* The archive records which phase a photograph belongs
+                        to, and nothing about who is in it. Naming the graduate
+                        here asserted the second. */}
+                    <figcaption className="text-center text-xs text-ink-subtle">
+                      من جلسات {activeStageName}
                     </figcaption>
                   </figure>
                 ) : (

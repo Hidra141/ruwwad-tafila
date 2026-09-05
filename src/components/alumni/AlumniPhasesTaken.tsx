@@ -150,7 +150,7 @@ export function AlumniPhasesTaken({ slug, headingId }: AlumniPhasesTakenProps) {
                         image={photo}
                         fill
                         sizes="(min-width: 64rem) 28rem, (min-width: 48rem) 20rem, 100vw"
-                        imageClassName="object-cover object-[center_20%] transition-transform duration-700 group-hover:scale-105"
+                        imageClassName="media-zoom object-cover object-center"
                       />
                     </ResponsiveMedia>
                     <figcaption className="absolute bottom-2.5 start-2.5 end-2.5 rounded-xl bg-slate-950/80 border border-white/20 p-2 text-center text-[0.72rem] font-bold text-white backdrop-blur-md">

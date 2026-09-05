@@ -34,7 +34,10 @@ export type IconName =
   | "close"
   | "chevron"
   | "search"
-  | "spark";
+  | "spark"
+  | "school"
+  | "building"
+  | "institution";
 
 const PATHS: Record<IconName, string> = {
   graduation: "M12 3 1 9l11 6 9-4.91V17h2V9L12 3ZM5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82Z",
@@ -64,10 +67,26 @@ const PATHS: Record<IconName, string> = {
     "M10.5 3a7.5 7.5 0 1 0 4.55 13.46l4.24 4.25 1.42-1.42-4.25-4.24A7.5 7.5 0 0 0 10.5 3Zm0 2a5.5 5.5 0 1 1 0 11 5.5 5.5 0 0 1 0-11Z",
   spark:
     "M12 2c.4 3.6 2.4 5.6 6 6-3.6.4-5.6 2.4-6 6-.4-3.6-2.4-5.6-6-6 3.6-.4 5.6-2.4 6-6ZM5.5 14c.2 1.9 1.2 2.9 3.1 3.1-1.9.2-2.9 1.2-3.1 3.1-.2-1.9-1.2-2.9-3.1-3.1 1.9-.2 2.9-1.2 3.1-3.1Z",
+
+  /* The three below are drawn as outlines rather than silhouettes. A school,
+     an office block and a ministry are all "a building with something on top",
+     and at 20px a filled silhouette flattens the differences between them —
+     the pitched roof, the windows and the columns are exactly the strokes that
+     tell them apart, so they have to stay strokes. */
+  school: "M3 10 12 4.5 21 10M5.5 10.5V20h13v-9.5M9.75 20v-5.5h4.5V20",
+  building:
+    "M3.5 20.5V7.5h8.5v13M12 20.5v-9h8.5v9M2 20.5h20M6.5 10.5h2M6.5 14h2M15.5 14.5h2M15.5 17.5h2",
+  institution:
+    "M3 9.5 12 4.5l9 5M5.5 10v7.5M9.8 10v7.5M14.2 10v7.5M18.5 10v7.5M4 18h16M2.5 20.5h19",
 };
 
 /** Icons drawn as outlines rather than filled shapes. */
-const STROKED: ReadonlySet<IconName> = new Set<IconName>(["sprout"]);
+const STROKED: ReadonlySet<IconName> = new Set<IconName>([
+  "sprout",
+  "school",
+  "building",
+  "institution",
+]);
 
 interface IconProps {
   name: IconName;
