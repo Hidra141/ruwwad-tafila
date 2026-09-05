@@ -77,6 +77,30 @@
   --color-line: var(--color-neutral-200);
   --color-line-strong: var(--color-neutral-300);
 
+  /* --- Section surfaces -------------------------------------------------
+     The four grounds a section may sit on, and the only four. Before these
+     existed, the story page alone carried seven different background
+     treatments written by hand inside each section — `bg-surface`,
+     `surface-muted/50`, `surface-muted/60`, `primary-soft/40` and three
+     separate gradients — with no rule relating them, so a change of colour
+     taught the reader nothing.
+
+       canvas   default ground: long-form text, photographs
+       raised   ONLY where a section holds white cards, so they float
+       tint     the one aside per page
+       inverse  the page's closing note, once, at the end
+
+     `canvas` and `raised` are `--color-surface` and `--color-surface-muted`
+     already; they are named here in the comment rather than aliased, because
+     a second name for the same value is the kind of duplication this system
+     exists to remove. Only the two genuinely new values are declared.
+
+     Adjacency rules live with the `SectionSurface` component that reads
+     these, not in CSS — CSS cannot express "never twice in a row". */
+  --color-surface-tint: var(--color-brand-50);
+  /* Second stop of the inverse gradient; the first is --color-surface-inverse. */
+  --color-surface-inverse-to: var(--color-brand-950);
+
   /* The brand cyan itself, for identity surfaces and decoration. */
   --color-brand: var(--color-brand-500);
   /* Controls use the darker steps so white text on them clears AA. */
@@ -157,6 +181,10 @@
    variable reference intact instead of resolving it at build time. */
 @theme inline {
   --font-sans: var(--font-arabic), ui-sans-serif, system-ui, "Segoe UI", sans-serif;
+  /* Page titles only. Falls back to the body face, so a failed font load
+     costs weight and personality — never legibility. */
+  --font-display: var(--font-display-arabic), var(--font-arabic), ui-sans-serif,
+    system-ui, "Segoe UI", sans-serif;
 }
 
 /* Motion durations. Not a Tailwind theme namespace, so they live on :root and
@@ -330,6 +358,179 @@
   &:active {
     transform: scale(var(--press-scale));
     transition-duration: var(--duration-instant);
+  }
+}
+
+/* Fills a heading's letterforms with a photograph instead of a colour, so the
+   word becomes a window onto the archive rather than a label above it.
+
+   Two things make this safe on an Arabic page. The fallback: where the browser
+   cannot clip a background to text the rule below restores a solid brand
+   colour, so the heading is never invisible. And the weight: Arabic
+   letterforms are markedly thinner than Latin ones at the same size, and a
+   photograph inside a thin stroke reads as noise — the caller must set the
+   display face to `wght 900` and a size no smaller than 3.25rem, or use a flat
+   colour instead. */
+@utility photo-text {
+  /* The image comes in through a custom property rather than being set on the
+     element's `background-image` directly. An inline style would outrank every
+     rule in this block, and the two branches below both need to be able to
+     take the photograph away again. */
+  background-image: var(--photo-text-src);
+  background-size: cover;
+  background-position: center;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+
+  /* Below the `sm` breakpoint the shared hero sets the title at `text-4xl`,
+     which lands around 2.3rem — measured on a 375px screen. Arabic strokes at
+     that size are too thin to hold a photograph: it stops reading as an image
+     seen through letters and starts reading as dirt on the type. The fill is
+     for large titles only, and the rule enforces that rather than trusting
+     each caller to remember it. */
+  @media (width < 40rem) {
+    background-image: none;
+    color: var(--color-ink-brand);
+    -webkit-text-fill-color: var(--color-ink-brand);
+  }
+
+  @supports not ((-webkit-background-clip: text) or (background-clip: text)) {
+    background-image: none;
+    color: var(--color-ink-brand);
+    -webkit-text-fill-color: var(--color-ink-brand);
+  }
+}
+
+/* Scroll-triggered entrance — the CSS half of the `Reveal` component.
+   --------------------------------------------------------------------------
+   The hidden state lives here rather than in JavaScript so that exactly one
+   system controls it. The component's only job is to set `data-shown`; before
+   that, and on the server, the element is hidden by these rules.
+
+   The `<noscript>` block in the root layout overrides `[data-reveal]` back to
+   visible, so a reader without JavaScript gets the content rather than a blank
+   column. That rule targets this attribute — do not rename it. */
+[data-reveal] {
+  opacity: 0;
+  transition-property: opacity, transform;
+  transition-duration: var(--duration-base);
+  transition-timing-function: var(--ease-out-soft);
+  transition-delay: var(--reveal-delay, 0ms);
+  will-change: opacity, transform;
+}
+
+[data-reveal="slide-up"] {
+  transform: translateY(16px);
+}
+
+/* Slides in from the inline start edge. The document is RTL, where start is
+   the right, so a positive X is the correct offset; the LTR rule below keeps
+   the component honest if a second direction is ever introduced. */
+[data-reveal="slide-start"] {
+  transform: translateX(16px);
+}
+
+[dir="ltr"] [data-reveal="slide-start"] {
+  transform: translateX(-16px);
+}
+
+[data-reveal="scale"] {
+  transform: scale(0.97);
+}
+
+[data-reveal][data-shown="true"] {
+  opacity: 1;
+  transform: none;
+  will-change: auto;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal] {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* The title entrance — page titles only.
+   --------------------------------------------------------------------------
+   The display face is variable, so a title can arrive by gaining weight rather
+   than by sliding or fading: it thickens from 250 to 700 along the `wght` axis
+   the way a stroke does under a pen. That is the site's title signature, and
+   it costs one CSS rule.
+
+   An earlier version also lengthened a kashida — the connecting stroke an
+   Arabic calligrapher draws out to set a line — by inserting tatweel
+   characters between two joined letters and scaling them open. It worked
+   mechanically, but at display size in this face the stretched connector read
+   as a dash sitting inside the word rather than as an elongated join, and the
+   page title is the last place to make a reader wonder whether a word is
+   misspelled. It also meant the heading's text no longer matched the word:
+   copying the title produced "قصتــــنا".
+
+   The word reads as written now. Runs once, on load — a signature repeated on
+   every scroll stops being one. The reduced-motion branch removes the
+   animation rather than shortening it, because a zero-length animation still
+   holds the element at its first frame for the length of any delay. */
+@utility title-enter {
+  animation: title-enter 1s var(--ease-out-soft) both;
+
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+    font-variation-settings: "wght" 700;
+  }
+}
+
+@keyframes title-enter {
+  from {
+    font-variation-settings: "wght" 250;
+    opacity: 0.4;
+  }
+  to {
+    font-variation-settings: "wght" 700;
+    opacity: 1;
+  }
+}
+
+/* Entrance for content that is above the fold by definition — the page hero.
+   --------------------------------------------------------------------------
+   The `Reveal` component drives its animation from an IntersectionObserver.
+   That is right for anything the visitor scrolls to, and wrong for the hero:
+   the observer has to deliver a callback before the element leaves
+   `opacity: 0`, and on a fresh load it sometimes never reports, because the
+   element was already intersecting when the observer was created. The hero
+   then renders as a background with no text in it — measured here at zero
+   opacity three seconds after reload, on all three of its blocks at once.
+
+   Reveal carries an escape hatch for exactly this case (it animates elements
+   found on screen at mount), but that imperative call and Motion's own
+   `whileInView` are both driving the same element, and the declarative one
+   wins by re-asserting `initial`.
+
+   A CSS animation has no such dependency: it starts when the element is
+   painted, always. `both` holds the final frame, and the reduced-motion branch
+   removes the animation entirely rather than shortening it, so the content is
+   simply present — a zeroed duration with a delay still hides it for the
+   length of the delay. Stagger by setting `--enter-delay` on the element. */
+@utility hero-enter {
+  animation: hero-enter var(--duration-base) var(--ease-out-soft) both;
+  animation-delay: var(--enter-delay, 0ms);
+
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+  }
+}
+
+@keyframes hero-enter {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
   }
 }
 

@@ -4,14 +4,17 @@ import { Section } from "@/components/ui/Section";
 import { contactInfo } from "@/data/contact";
 
 /**
- * The four confirmed ways to reach the centre, as cards rather than a
- * definition list.
+ * The channels the hero does not already carry.
  *
- * The list version put the channels behind small text links of the same
- * weight as body copy. Reaching someone is the whole purpose of this page, so
- * each channel is now a full-size target that states what happens when you
- * take it — "يفتح تطبيق الهاتف", "يفتح محادثة جديدة" — instead of leaving the
- * visitor to guess whether a tap dials, navigates, or opens an app.
+ * There were four here — phone, WhatsApp, Facebook, the map. When the page
+ * gained a hero, the two fastest moved into it, and for a while both sat on
+ * screen twice at once: the same number, the same WhatsApp link, one above the
+ * other. The hero keeps the two actions most visitors want; this section picks
+ * up the two it does not.
+ *
+ * Each card is a full-size target that states what happens when you take it —
+ * "أحدث الأنشطة والصور", "يفتح الموقع على خرائط جوجل" — rather than leaving
+ * the visitor to guess whether a tap navigates or opens an app.
  *
  * Address and opening hours are absent because neither has been supplied.
  */
@@ -23,39 +26,16 @@ interface Channel {
   href: string;
   icon: ReactNode;
   ltr?: boolean;
-  tone: "brand" | "whatsapp" | "facebook" | "map";
+  tone: "facebook" | "map";
 }
 
 const TONES: Record<Channel["tone"], string> = {
-  brand: "bg-brand-50 text-brand-700 ring-brand-100",
-  whatsapp: "bg-[#e7f9ee] text-[#0f7a3d] ring-[#c7f0d8]",
   facebook: "bg-[#eaf1fd] text-[#1b4fa8] ring-[#d3e3fb]",
   map: "bg-accent-50 text-accent-700 ring-accent-100",
 };
 
 export function ContactDetails() {
   const channels: Channel[] = [
-    {
-      label: "اتصل بنا",
-      value: contactInfo.phone.display,
-      hint: "يفتح تطبيق الهاتف",
-      href: `tel:${contactInfo.phone.value}`,
-      ltr: true,
-      tone: "brand",
-      icon: (
-        <path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.58 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.46.57 3.6a1 1 0 0 1-.25 1l-2.22 2.2Z" />
-      ),
-    },
-    {
-      label: "راسلنا على واتساب",
-      value: "ابدأ محادثة",
-      hint: "يفتح محادثة جديدة",
-      href: contactInfo.whatsapp.href,
-      tone: "whatsapp",
-      icon: (
-        <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2Zm5.8 14.03c-.24.68-1.42 1.31-1.95 1.36-.5.05-.98.23-3.3-.69-2.77-1.09-4.53-3.92-4.67-4.1-.13-.18-1.11-1.48-1.11-2.82 0-1.34.7-2 .95-2.28.25-.27.54-.34.72-.34.18 0 .36 0 .52.01.17.01.39-.06.61.47.23.53.77 1.87.84 2.01.07.14.11.3.02.48-.09.18-.14.3-.27.46-.14.16-.29.35-.41.47-.14.14-.28.29-.12.56.16.27.71 1.17 1.52 1.9 1.05.93 1.93 1.22 2.2 1.36.27.14.43.11.59-.07.16-.18.68-.79.86-1.07.18-.27.36-.22.61-.13.25.09 1.58.75 1.85.88.27.14.45.2.52.32.07.11.07.66-.17 1.34Z" />
-      ),
-    },
     {
       label: "تابعنا على فيسبوك",
       value: "روّاد التنمية – الطفيلة",
@@ -82,7 +62,7 @@ export function ContactDetails() {
     <Section spacing="compact" ariaLabelledBy="contact-details">
       <Container className="flex flex-col gap-8">
         <h2 id="contact-details" className="sr-only">
-          قنوات التواصل
+          قنوات تواصل أخرى
         </h2>
 
         <ul className="grid grid-cols-1 gap-4 sm:grid-cols-2">

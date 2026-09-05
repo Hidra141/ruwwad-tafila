@@ -1,126 +1,181 @@
 "use client";
 
-import { useState } from "react";
 import Image from "next/image";
-import { Container } from "@/components/ui/Container";
-import { Section } from "@/components/ui/Section";
-import { SectionHeading } from "@/components/ui/SectionHeading";
+import { useRef, useState, type KeyboardEvent } from "react";
+
 import { Reveal } from "@/components/motion/Reveal";
+import { Container } from "@/components/ui/Container";
+import { Icon } from "@/components/ui/Icon";
+import { SectionSurface } from "@/components/ui/SectionSurface";
+import { SectionHeading } from "@/components/ui/SectionHeading";
 import { timelineMilestones } from "@/data/timeline";
 import { t } from "@/lib/i18n";
+import { cn } from "@/lib/utils";
 
+/**
+ * The year-by-year milestones, as a horizontal stepper.
+ *
+ * Three things were wrong with the previous version beyond its styling:
+ *
+ * 1. The year buttons were plain buttons with no stated relationship to the
+ *    panel they controlled, so assistive technology announced six unlabelled
+ *    buttons and a block of text that changed for no given reason. They are
+ *    now a tablist, and the panel is the tabpanel they own.
+ * 2. There was no keyboard navigation. Arrow keys now move between years, and
+ *    because the track is laid out right-to-left, the left arrow advances and
+ *    the right arrow goes back — matching what the eye sees rather than what
+ *    the key is named.
+ * 3. The milestone photograph carried `priority`, telling Next.js to preload
+ *    an image sitting several screens down the page, competing with the hero
+ *    for bandwidth on arrival.
+ */
 export function AboutTimeline() {
-  const [activeIndex, setActiveIndex] = useState<number>(0);
+  const [activeIndex, setActiveIndex] = useState(0);
+  const tabRefs = useRef<Array<HTMLButtonElement | null>>([]);
 
-  const activeMilestone = timelineMilestones[activeIndex];
+  const lastIndex = timelineMilestones.length - 1;
+  const active = timelineMilestones[activeIndex];
 
-  const handleNext = () => {
-    if (activeIndex < timelineMilestones.length - 1) {
-      setActiveIndex(activeIndex + 1);
+  const select = (index: number, focus = false) => {
+    const next = Math.min(Math.max(index, 0), lastIndex);
+    setActiveIndex(next);
+    if (focus) tabRefs.current[next]?.focus();
+  };
+
+  const onTabKeyDown = (event: KeyboardEvent<HTMLDivElement>) => {
+    // The track renders right-to-left, so "left" is forwards through the years.
+    const step =
+      event.key === "ArrowLeft" ? 1 : event.key === "ArrowRight" ? -1 : 0;
+
+    if (step !== 0) {
+      event.preventDefault();
+      select(activeIndex + step, true);
+      return;
+    }
+    if (event.key === "Home") {
+      event.preventDefault();
+      select(0, true);
+    }
+    if (event.key === "End") {
+      event.preventDefault();
+      select(lastIndex, true);
     }
   };
 
-  const handlePrev = () => {
-    if (activeIndex > 0) {
-      setActiveIndex(activeIndex - 1);
-    }
-  };
+  const yearLabel = (year: string) => (year === "اليوم" ? "اليوم" : `عام ${year}`);
 
   return (
-    <Section spacing="compact" ariaLabelledBy="about-timeline" className="py-12 md:py-16">
+    <SectionSurface
+      id="timeline"
+      surface="raised"
+      ariaLabelledBy="about-timeline-title"
+    >
       <Container className="flex flex-col gap-10">
         <SectionHeading
-          id="about-timeline"
+          id="about-timeline-title"
+          eyebrow="المحطات"
           title="محطات فارقة في مسيرة روّاد الطفيلة"
-          description="خط زمني تفاعلي أفقي يعرض رحلة التمكين والأثر من تأسيس المبادرة صيف 2012 وحتّى اليوم."
+          description="ست محطات من التأسيس حتى اليوم. اختر محطة لتقرأ تفاصيلها."
         />
 
         <Reveal variant="fade">
-          <div className="relative flex flex-col gap-8 rounded-3xl border border-line bg-surface p-6 sm:p-8 md:p-10 shadow-sm overflow-hidden">
-            {/* Top Horizontal Stepper Track Bar (No scrollbar, generous px padding to prevent edge clipping) */}
-            <div className="relative flex items-center justify-between px-6 sm:px-12 py-6 border-b border-line overflow-x-auto [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
-              {/* Progress Connecting Line */}
+          <div className="overflow-hidden rounded-3xl border border-line bg-surface shadow-sm">
+            {/* --- Year track -------------------------------------------- */}
+            <div
+              role="tablist"
+              aria-label="محطات المسيرة"
+              onKeyDown={onTabKeyDown}
+              className="relative flex items-center justify-between gap-2 overflow-x-auto border-b border-line px-6 py-6 sm:px-10 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
+            >
+              {/* The rail sits behind the nodes and stops short of the first
+                  and last, so it never runs out from under them. */}
               <div
-                className="absolute top-1/2 start-12 end-12 h-1.5 -translate-y-1/2 bg-line rounded-full z-0"
                 aria-hidden="true"
+                className="absolute top-1/2 start-12 end-12 h-1 -translate-y-1/2 rounded-pill bg-line"
               >
                 <div
-                  className="h-full bg-brand-600 rounded-full transition-all duration-500"
-                  style={{
-                    width: `${(activeIndex / (timelineMilestones.length - 1)) * 100}%`,
-                  }}
+                  className="h-full rounded-pill bg-brand-500 transition-[width] duration-(--duration-base) ease-(--ease-out-soft)"
+                  style={{ width: `${(activeIndex / lastIndex) * 100}%` }}
                 />
               </div>
 
-              {/* Year Node Buttons */}
-              {timelineMilestones.map((milestone, idx) => {
-                const isActive = idx === activeIndex;
-                const isPassed = idx < activeIndex;
+              {timelineMilestones.map((milestone, index) => {
+                const isActive = index === activeIndex;
+                const isPassed = index < activeIndex;
 
                 return (
                   <button
                     key={milestone.year}
+                    ref={(node) => {
+                      tabRefs.current[index] = node;
+                    }}
                     type="button"
-                    onClick={() => setActiveIndex(idx)}
-                    className="group relative z-10 flex flex-col items-center focus:outline-hidden my-1"
-                    title={`انتقل إلى محطة ${milestone.year}`}
+                    role="tab"
+                    id={`timeline-tab-${index}`}
+                    aria-selected={isActive}
+                    aria-controls="timeline-panel"
+                    tabIndex={isActive ? 0 : -1}
+                    className={cn(
+                      "press relative z-10 flex size-14 shrink-0 items-center justify-center rounded-2xl text-sm font-semibold sm:size-16",
+                      isActive
+                        ? "bg-primary text-ink-inverse shadow-md ring-4 ring-brand-100"
+                        : isPassed
+                          ? "bg-brand-500 text-ink-inverse"
+                          : "border-2 border-line bg-surface text-ink-muted hover:border-brand-300 hover:text-ink",
+                    )}
+                    onClick={() => select(index)}
                   >
-                    {/* Circle Node Pill */}
-                    <span
-                      className={`flex size-12 sm:size-14 items-center justify-center rounded-2xl text-xs sm:text-sm font-black transition-all duration-300 ${
-                        isActive
-                          ? "bg-brand-600 text-white ring-4 ring-brand-100 scale-110 shadow-md"
-                          : isPassed
-                          ? "bg-brand-500 text-white"
-                          : "border-2 border-line bg-surface text-ink-muted group-hover:border-brand-400 group-hover:text-ink shadow-xs"
-                      }`}
-                    >
-                      {milestone.year}
-                    </span>
+                    {milestone.year}
                   </button>
                 );
               })}
             </div>
 
-            {/* Active Milestone Display Card */}
-            <div className="grid grid-cols-1 gap-8 lg:grid-cols-12 lg:items-center">
-              {/* Content Side (lg:col-span-6) */}
-              <div className="flex flex-col justify-between gap-6 lg:col-span-6 order-2 lg:order-1">
+            {/* --- Active milestone -------------------------------------- */}
+            <div
+              role="tabpanel"
+              id="timeline-panel"
+              aria-labelledby={`timeline-tab-${activeIndex}`}
+              tabIndex={0}
+              className="grid gap-8 p-6 sm:p-8 lg:grid-cols-2 lg:items-center lg:gap-12 lg:p-10"
+            >
+              <div className="order-2 flex flex-col gap-6 lg:order-1">
                 <div className="flex flex-col gap-4">
-                  <div className="flex items-center justify-between">
-                    <span className="inline-flex rounded-full bg-brand-50 px-3.5 py-1 text-xs font-black text-brand-800 border border-brand-200">
-                      محطة {activeIndex + 1} من أصل {timelineMilestones.length}
+                  <div className="flex flex-wrap items-center gap-3">
+                    <span className="inline-flex rounded-pill border border-brand-200 bg-primary-soft px-3 py-1 text-xs font-semibold text-ink-brand">
+                      محطة {activeIndex + 1} من {timelineMilestones.length}
                     </span>
-                    <span className="text-xs font-bold text-ink-subtle">
-                      عام {activeMilestone.year}
+                    <span className="text-xs font-semibold text-ink-subtle">
+                      {yearLabel(active.year)}
                     </span>
                   </div>
 
-                  <h3 className="text-2xl font-black text-ink leading-snug sm:text-3xl">
-                    {t(activeMilestone.title)}
+                  <h3 className="text-2xl font-semibold leading-snug text-ink">
+                    {t(active.title)}
                   </h3>
 
-                  {activeMilestone.description ? (
-                    <p className="text-base sm:text-lg font-bold leading-relaxed text-ink-muted">
-                      {t(activeMilestone.description)}
+                  {active.description ? (
+                    <p className="text-base leading-relaxed text-ink-muted">
+                      {t(active.description)}
                     </p>
                   ) : null}
 
-                  {activeMilestone.highlights && activeMilestone.highlights.length > 0 ? (
-                    <div className="pt-3 border-t border-line">
-                      <h4 className="text-xs font-black text-ink-subtle uppercase tracking-wider mb-2.5">
-                        أبرز الإنجازات والأنشطة الموثقة:
+                  {active.highlights?.length ? (
+                    <div className="border-t border-line pt-5">
+                      <h4 className="mb-3 text-xs font-semibold tracking-wide text-ink-subtle">
+                        أبرز الإنجازات الموثقة
                       </h4>
                       <ul className="flex flex-col gap-2">
-                        {activeMilestone.highlights.map((h, idx) => (
+                        {active.highlights.map((highlight) => (
                           <li
-                            key={idx}
-                            className="flex items-center gap-2.5 rounded-xl bg-surface-muted/80 p-3 text-xs sm:text-sm font-extrabold text-ink border border-line/60"
+                            key={t(highlight)}
+                            className="flex items-start gap-3 rounded-xl border border-line/60 bg-surface-muted/70 p-3 text-sm text-ink"
                           >
-                            <span className="flex size-5 shrink-0 items-center justify-center rounded-full bg-brand-600 text-[0.65rem] font-black text-white">
-                              ✓
-                            </span>
-                            <span>{t(h)}</span>
+                            <Icon
+                              name="check"
+                              className="mt-0.5 size-4 text-ink-brand"
+                            />
+                            <span>{t(highlight)}</span>
                           </li>
                         ))}
                       </ul>
@@ -128,68 +183,65 @@ export function AboutTimeline() {
                   ) : null}
                 </div>
 
-                {/* RTL Corrected Navigation Toolbar */}
-                <div className="flex items-center justify-between border-t border-line pt-5 mt-2">
-                  {/* Previous Station Button (Move Right towards 2012) */}
+                {/* --- Step controls ----------------------------------- */}
+                <div className="flex items-center justify-between gap-4 border-t border-line pt-5">
+                  {/* Literal arrow characters were used here before. Arrows are
+                      bidi-neutral, so their rendered direction followed the
+                      surrounding text and both buttons ended up pointing the
+                      same way. An SVG cannot flip. */}
                   <button
                     type="button"
-                    onClick={handlePrev}
+                    onClick={() => select(activeIndex - 1)}
                     disabled={activeIndex === 0}
-                    className={`inline-flex items-center gap-2 rounded-xl px-5 py-2.5 text-xs font-black transition-all ${
-                      activeIndex === 0
-                        ? "opacity-40 cursor-not-allowed bg-surface-muted text-ink-subtle"
-                        : "bg-surface border border-line text-ink hover:border-brand-300 hover:bg-brand-50/50"
-                    }`}
+                    className="press inline-flex min-h-10 items-center gap-2 rounded-pill border border-line bg-surface px-4 text-sm font-semibold text-ink hover:border-brand-300 hover:bg-primary-soft disabled:pointer-events-none disabled:opacity-40"
                   >
-                    <span>→ المحطة السابقة</span>
+                    <Icon name="chevron" className="size-4" />
+                    <span>السابقة</span>
                   </button>
 
-                  {/* Dot Progress Indicators */}
-                  <div className="flex items-center gap-1.5">
-                    {timelineMilestones.map((_, dotIdx) => (
+                  <div className="flex items-center gap-1.5" aria-hidden="true">
+                    {timelineMilestones.map((milestone, index) => (
                       <span
-                        key={dotIdx}
-                        className={`size-2 rounded-full transition-all ${
-                          dotIdx === activeIndex ? "bg-brand-600 w-5" : "bg-line"
-                        }`}
+                        key={milestone.year}
+                        className={cn(
+                          "h-2 rounded-pill transition-all duration-(--duration-fast)",
+                          index === activeIndex
+                            ? "w-5 bg-primary"
+                            : "w-2 bg-line-strong",
+                        )}
                       />
                     ))}
                   </div>
 
-                  {/* Next Station Button (Move Left towards 2026/اليوم in RTL) */}
                   <button
                     type="button"
-                    onClick={handleNext}
-                    disabled={activeIndex === timelineMilestones.length - 1}
-                    className={`inline-flex items-center gap-2 rounded-xl px-5 py-2.5 text-xs font-black transition-all ${
-                      activeIndex === timelineMilestones.length - 1
-                        ? "opacity-40 cursor-not-allowed bg-surface-muted text-ink-subtle"
-                        : "bg-brand-600 text-white shadow-sm hover:bg-brand-700"
-                    }`}
+                    onClick={() => select(activeIndex + 1)}
+                    disabled={activeIndex === lastIndex}
+                    className="press inline-flex min-h-10 items-center gap-2 rounded-pill bg-primary px-4 text-sm font-semibold text-ink-inverse hover:bg-primary-hover disabled:pointer-events-none disabled:opacity-40"
                   >
-                    <span>المحطة التالية ←</span>
+                    <span>التالية</span>
+                    <Icon name="chevron" className="size-4 rotate-180" />
                   </button>
                 </div>
               </div>
 
-              {/* Photo Frame Side (lg:col-span-6) */}
-              <div className="relative overflow-hidden rounded-2xl border border-line bg-neutral-100 lg:col-span-6 aspect-16/10 shadow-xs group order-1 lg:order-2">
+              <div className="group relative order-1 aspect-16/10 overflow-hidden rounded-2xl border border-line bg-surface-sunken lg:order-2">
                 <Image
-                  src={activeMilestone.image.src}
-                  alt={t(activeMilestone.image.alt)}
+                  key={active.image.src}
+                  src={active.image.src}
+                  alt={t(active.image.alt)}
                   fill
-                  sizes="(min-width: 64rem) 50vw, 100vw"
-                  className="object-cover transition-transform duration-700 group-hover:scale-105"
-                  priority
+                  sizes="(min-width: 64rem) 40rem, 92vw"
+                  className="media-zoom object-cover"
                 />
-                <div className="absolute top-4 end-4 z-10 inline-flex items-center gap-1.5 rounded-full bg-surface/90 px-3.5 py-1 text-xs font-black text-brand-900 backdrop-blur-md border border-line shadow-xs">
-                  <span>عام {activeMilestone.year}</span>
-                </div>
+                <span className="absolute top-4 end-4 inline-flex rounded-pill border border-line bg-surface/90 px-3 py-1 text-xs font-semibold text-ink-brand backdrop-blur-md">
+                  {yearLabel(active.year)}
+                </span>
               </div>
             </div>
           </div>
         </Reveal>
       </Container>
-    </Section>
+    </SectionSurface>
   );
 }

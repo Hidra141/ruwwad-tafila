@@ -1,4 +1,6 @@
 import Link from "next/link";
+import { Container } from "@/components/ui/Container";
+import { Section } from "@/components/ui/Section";
 import { ImageFrame } from "@/components/media/ImageFrame";
 import { ResponsiveMedia } from "@/components/media/ResponsiveMedia";
 import { Reveal } from "@/components/motion/Reveal";
@@ -30,7 +32,16 @@ export function AlumniProfileHero({
   const mainQuote = storyParagraphs[0] || voiceParagraphs[0] || introParagraphs[0];
 
   return (
-    <header className="relative overflow-hidden rounded-3xl border border-line bg-gradient-to-br from-surface via-surface-muted/50 to-surface p-6 sm:p-8 md:p-10 shadow-sm">
+    /*
+      The four sections below this one each wrap themselves in `Section` +
+      `Container`; this hero did not, so it ran edge to edge while everything
+      after it stopped at the page width — measured at 1265px against a 1184px
+      content column on a 1280px screen, and the gap only widens on a larger
+      display. It is contained now, like its siblings.
+    */
+    <Section spacing="compact">
+      <Container>
+        <header className="relative overflow-hidden rounded-3xl border border-line bg-gradient-to-br from-surface via-surface-muted/50 to-surface p-6 sm:p-8 md:p-10 shadow-sm">
       {/* Background ambient lighting orbs */}
       <div
         className="pointer-events-none absolute -top-24 -right-24 size-96 rounded-full bg-brand-500/10 blur-3xl"
@@ -105,7 +116,7 @@ export function AlumniProfileHero({
               <span className="text-xs font-bold text-ink-subtle tracking-wider uppercase">
                 {cohortLabelText} {alumni.graduationYear ? ` • ${alumni.graduationYear}` : ""}
               </span>
-              <Name className="text-3xl font-black tracking-tight text-ink sm:text-4xl md:text-5xl leading-tight">
+              <Name className="text-3xl font-bold tracking-tight text-balance text-ink sm:text-4xl leading-tight">
                 {nameText}
               </Name>
               {alumni.name.en ? (
@@ -121,8 +132,11 @@ export function AlumniProfileHero({
             <Reveal variant="slide-up" delay={0.18}>
               <div className="relative rounded-2xl border border-brand-200/80 bg-brand-50/50 p-4 sm:p-5 shadow-2xs">
                 <span className="absolute -top-3.5 start-4 text-3xl font-black text-brand-300 select-none">“</span>
-                <p className="text-xs sm:text-sm md:text-base font-bold leading-relaxed text-brand-950 ps-3">
-                  "{mainQuote}"
+                {/* No inline quotation marks: the decorative mark above already
+                    opens the quote, and wrapping the text in straight ASCII
+                    quotes as well rendered it inside two sets at once. */}
+                <p className="max-w-(--container-content) text-sm sm:text-base leading-relaxed text-brand-950 ps-3">
+                  {mainQuote}
                 </p>
               </div>
             </Reveal>
@@ -146,7 +160,9 @@ export function AlumniProfileHero({
             </div>
           </Reveal>
         </div>
-      </div>
-    </header>
+          </div>
+        </header>
+      </Container>
+    </Section>
   );
 }

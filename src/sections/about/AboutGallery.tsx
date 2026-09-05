@@ -2,7 +2,7 @@ import { ImageFrame } from "@/components/media/ImageFrame";
 import { ResponsiveMedia } from "@/components/media/ResponsiveMedia";
 import { Reveal } from "@/components/motion/Reveal";
 import { Container } from "@/components/ui/Container";
-import { Section } from "@/components/ui/Section";
+import { SectionSurface } from "@/components/ui/SectionSurface";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import type { ImageAsset } from "@/types";
 
@@ -59,10 +59,11 @@ const archive: Array<ImageAsset & { year: string }> = [
 
 export function AboutGallery() {
   return (
-    <Section spacing="compact" ariaLabelledBy="about-gallery" className="bg-surface-muted/60">
+    <SectionSurface id="archive" ariaLabelledBy="about-archive-title">
       <Container className="flex flex-col gap-10">
         <SectionHeading
-          id="about-gallery"
+          id="about-archive-title"
+          eyebrow="الأرشيف"
           title="من أرشيف المركز"
           description="لقطات من سنوات العمل في الطفيلة، بالتاريخ الذي التُقطت فيه."
         />
@@ -110,7 +111,7 @@ export function AboutGallery() {
                         label drops the contrast below readable. */}
                     <figcaption className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 via-black/25 to-transparent p-3">
                       <span
-                        className="text-sm font-extrabold text-white drop-shadow-sm"
+                        className="text-sm font-semibold text-white drop-shadow-sm"
                         data-ltr
                       >
                         {photo.year}
@@ -123,6 +124,6 @@ export function AboutGallery() {
           })}
         </ul>
       </Container>
-    </Section>
+    </SectionSurface>
   );
 }

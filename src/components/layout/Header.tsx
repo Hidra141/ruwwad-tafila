@@ -8,7 +8,7 @@ import { Logo } from "@/components/brand/Logo";
 import { DesktopNavigation } from "@/components/navigation/DesktopNavigation";
 import { MobileNavigation } from "@/components/navigation/MobileNavigation";
 import { Container } from "@/components/ui/Container";
-import { routes } from "@/config/routes";
+import { darkHeroRoutes, routes } from "@/config/routes";
 import { siteConfig } from "@/config/site";
 import { t } from "@/lib/i18n";
 import { cn } from "@/lib/utils";
@@ -23,9 +23,11 @@ export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const pathname = usePathname();
 
-  // Dark hero pages where header should sit transparent/inverse at top
-  const isDarkHeroPage =
-    pathname === routes.home || pathname === routes.drosos || pathname === routes.youth;
+  /* Which pages carry a dark hero is declared beside the route table, not
+     here: the header is the wrong place to remember what another component
+     renders, and keeping the two apart is how the youth page ended up with a
+     white navigation bar on a pale gradient. */
+  const isDarkHeroPage = darkHeroRoutes.includes(pathname);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -42,12 +44,33 @@ export function Header() {
   return (
     <header
       className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
+        /*
+          Transition only what changes. `transition-all` at 500ms animated
+          every property the class swap touched, including the border colour,
+          so the rule below drew a hairline that faded in and out across the
+          full width of the viewport on every scroll — the most restless thing
+          on the page, on every page.
+        */
+        "fixed inset-x-0 top-0 z-50 transition-[background-color,box-shadow] duration-(--duration-base) ease-(--ease-out-soft)",
         isOverHero
-          ? "bg-transparent text-white border-none shadow-none"
+          ? "bg-transparent text-white"
           : isScrolled
-          ? "bg-surface/90 backdrop-blur-xl border-b border-line shadow-xs text-ink"
-          : "bg-surface/80 backdrop-blur-md border-b border-line/60 text-ink"
+            ? /*
+                A soft shadow instead of a border. The line's only job is to
+                separate the bar from content sliding underneath it, and a
+                1px hairline stretched edge to edge is a harder mark than that
+                job needs — it cut across the hero gradients and collided with
+                the rounded card edges beneath it. `shadow-sm` is the same
+                token every raised surface on the site uses.
+              */
+              "bg-surface/90 text-ink shadow-sm backdrop-blur-xl"
+            : /*
+                Nothing at all at rest. At scroll zero there is no content
+                under the bar to separate it from — the hero starts exactly
+                there and paints its own colour behind it — so the line was
+                dividing the page from nothing.
+              */
+              "bg-surface/70 text-ink backdrop-blur-md",
       )}
     >
       <Container width="full">

@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { IBM_Plex_Sans_Arabic } from "next/font/google";
+import { Beiruti, IBM_Plex_Sans_Arabic } from "next/font/google";
 
 import { SiteShell } from "@/components/layout/SiteShell";
 import { SITE_URL, siteConfig } from "@/config/site";
@@ -18,6 +18,24 @@ const arabic = IBM_Plex_Sans_Arabic({
   subsets: ["arabic", "latin"],
   weight: ["400", "500", "600", "700"],
   variable: "--font-arabic",
+  display: "swap",
+});
+
+/**
+ * Display face, for page titles only.
+ *
+ * Beiruti is loaded as a variable font — no `weight` array — because the
+ * weight axis itself is the point: a title can animate along `wght` from 250
+ * to 700, which is impossible with the static instances IBM Plex Sans Arabic
+ * ships as. That elongation-and-thickening is the Arabic script's own
+ * typographic gesture, and it is the site's title signature.
+ *
+ * Body text stays on IBM Plex Sans Arabic. Two faces, two jobs — this is not
+ * a replacement.
+ */
+const display = Beiruti({
+  subsets: ["arabic", "latin"],
+  variable: "--font-display-arabic",
   display: "swap",
 });
 
@@ -62,7 +80,7 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang={locale} dir={getDirection(locale)} className={arabic.variable} data-scroll-behavior="smooth" suppressHydrationWarning>
+    <html lang={locale} dir={getDirection(locale)} className={`${arabic.variable} ${display.variable}`} data-scroll-behavior="smooth" suppressHydrationWarning>
       <body suppressHydrationWarning>
         {/*
           Motion server-renders its hidden `initial` state, so content inside a
